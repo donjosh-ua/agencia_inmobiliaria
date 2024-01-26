@@ -1,1 +1,6 @@
-# agencia_inmobiliaria
+# Proyecto de bases de datos
+
+### Agencia inmobiliaria
+
+Autores:
+Joshua Cueva
