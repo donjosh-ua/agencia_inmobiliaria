@@ -14,16 +14,166 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: white;</string>
+   <string notr="true">background-color: rgb(235, 235, 239);
+color: #1f1f1f;</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>60</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>60</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Serif Condensed</family>
+        <pointsize>30</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Agencia Inmobiliaria </string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="btnEmpleados">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>230</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>180</width>
+          <height>230</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Empleados</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnInmuebles">
+        <property name="maximumSize">
+         <size>
+          <width>180</width>
+          <height>230</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Contratos</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnClientes">
+        <property name="maximumSize">
+         <size>
+          <width>180</width>
+          <height>230</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Reportes</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QWidget" name="horizontalWidget_2" native="true">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>60</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: black;
+color: #f1f1f1;</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="font">
+            <font>
+             <family>DejaVu Sans Mono</family>
+            </font>
+           </property>
+           <property name="text">
+            <string>Av. Gonzalez Suarez y Av. Loja</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="font">
+            <font>
+             <family>DejaVu Sans Mono</family>
+            </font>
+           </property>
+           <property name="text">
+            <string>Leandro gay</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_4">
+           <property name="font">
+            <font>
+             <family>DejaVu Sans Mono</family>
+            </font>
+           </property>
+           <property name="text">
+            <string>El que este libre de pecado que tire la primera piedra</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnReportes">
+         <property name="maximumSize">
+          <size>
+           <width>60</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Reportes</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
      <width>700</width>
-     <height>23</height>
+     <height>19</height>
     </rect>
    </property>
   </widget>

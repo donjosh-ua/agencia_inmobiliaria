@@ -1,6 +1,12 @@
 {
     "files": [
         "mainwindow.py",
-        "mainView.ui"
+        "mainView.ui",
+        "contratosView.ui",
+        "empleadosView.ui",
+        "reportesView.ui",
+        "formPersonas.ui",
+        "formInmuebles.ui",
+        "login.ui"
     ]
 }
