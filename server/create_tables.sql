@@ -1,10 +1,15 @@
+CREATE TABLE Tipo_Empleado(
+	ID	INT,
+	Detalle	TEXT NOT NULL
+)
+
 CREATE TABLE Empleado(
 	Cedula      VARCHAR(10) PRIMARY KEY,
 	Nombre      TEXT NOT NULL,
 	Telefono    TEXT NOT NULL,
 	Email       TEXT NOT NULL,
 	Direccion   TEXT NOT NULL,
-	Tipo        TEXT
+	Tipo        INT REFERENCES Tipo_Empleado(ID)
 );
 
 CREATE TABLE Ciudad(
