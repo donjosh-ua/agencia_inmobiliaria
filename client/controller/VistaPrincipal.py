@@ -13,7 +13,7 @@ class VistaPrincipal(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.vl = None
         self.ui.btnEmpleados.clicked.connect(self.empleados)
-        self.ui.btnInmuebles.clicked.connect(self.contratos)
+        self.ui.btnContratos.clicked.connect(self.contratos)
         self.ui.btnReportes.clicked.connect(self.reportes)
 
     def reportes(self):

@@ -34,16 +34,46 @@ class Ui_MainWindow(object):
         self.btnEmpleados = QtWidgets.QPushButton(parent=self.centralwidget)
         self.btnEmpleados.setMinimumSize(QtCore.QSize(80, 230))
         self.btnEmpleados.setMaximumSize(QtCore.QSize(180, 230))
+        self.btnEmpleados.setStyleSheet("QPushButton{\n"
+"    color: black;\n"
+"    background-color: white;\n"
+"    border-radius: 4px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"    background-color: #3081D0;\n"
+"    color: white;\n"
+"}")
         self.btnEmpleados.setObjectName("btnEmpleados")
         self.horizontalLayout.addWidget(self.btnEmpleados)
-        self.btnInmuebles = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.btnInmuebles.setMaximumSize(QtCore.QSize(180, 230))
-        self.btnInmuebles.setObjectName("btnInmuebles")
-        self.horizontalLayout.addWidget(self.btnInmuebles)
-        self.btnClientes = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.btnClientes.setMaximumSize(QtCore.QSize(180, 230))
-        self.btnClientes.setObjectName("btnClientes")
-        self.horizontalLayout.addWidget(self.btnClientes)
+        self.btnContratos = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.btnContratos.setMaximumSize(QtCore.QSize(180, 230))
+        self.btnContratos.setStyleSheet("QPushButton{\n"
+"    color: black;\n"
+"    background-color: white;\n"
+"    border-radius: 4px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"    background-color: #3081D0;\n"
+"    color: white;\n"
+"}")
+        self.btnContratos.setObjectName("btnContratos")
+        self.horizontalLayout.addWidget(self.btnContratos)
+        self.btnReportes = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.btnReportes.setMaximumSize(QtCore.QSize(180, 230))
+        self.btnReportes.setStyleSheet("QPushButton{\n"
+"    color: black;\n"
+"    background-color: white;\n"
+"    border-radius: 4px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"    background-color: #3081D0;\n"
+"    color: white;\n"
+"}")
+        self.btnReportes.setObjectName("btnReportes")
+        self.horizontalLayout.addWidget(self.btnReportes)
         self.verticalLayout.addLayout(self.horizontalLayout)
         self.horizontalWidget_2 = QtWidgets.QWidget(parent=self.centralwidget)
         self.horizontalWidget_2.setMaximumSize(QtCore.QSize(16777215, 60))
@@ -73,19 +103,8 @@ class Ui_MainWindow(object):
         self.label_4.setObjectName("label_4")
         self.verticalLayout_2.addWidget(self.label_4)
         self.horizontalLayout_2.addLayout(self.verticalLayout_2)
-        self.btnReportes = QtWidgets.QPushButton(parent=self.horizontalWidget_2)
-        self.btnReportes.setMaximumSize(QtCore.QSize(60, 60))
-        self.btnReportes.setObjectName("btnReportes")
-        self.horizontalLayout_2.addWidget(self.btnReportes)
         self.verticalLayout.addWidget(self.horizontalWidget_2)
         MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 700, 19))
-        self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -95,9 +114,8 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "Agencia Inmobiliaria "))
         self.btnEmpleados.setText(_translate("MainWindow", "Empleados"))
-        self.btnInmuebles.setText(_translate("MainWindow", "Contratos"))
-        self.btnClientes.setText(_translate("MainWindow", "Reportes"))
+        self.btnContratos.setText(_translate("MainWindow", "Contratos"))
+        self.btnReportes.setText(_translate("MainWindow", "Reportes"))
         self.label_2.setText(_translate("MainWindow", "Av. Gonzalez Suarez y Av. Loja"))
         self.label_3.setText(_translate("MainWindow", "Leandro gay"))
         self.label_4.setText(_translate("MainWindow", "El que este libre de pecado que tire la primera piedra"))
-        self.btnReportes.setText(_translate("MainWindow", "Reportes"))
