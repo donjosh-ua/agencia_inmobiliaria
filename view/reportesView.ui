@@ -45,7 +45,71 @@ color: #1f1f1f;</string>
        </widget>
       </item>
       <item>
-       <widget class="QComboBox" name="cbxTipoReporte"/>
+       <widget class="QComboBox" name="cbxTipoReporte">
+        <item>
+         <property name="text">
+          <string>Ventas por agente</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Inmuebles de un tipo especifico</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Inmuebles vendidos por sector</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Inmuebles disponibles para la venta</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Ventas en un rango de fechas</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="lbl_inmueble_elegido">
+        <property name="text">
+         <string>Inmueble</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="cbx_inmueble_elegido"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="lbl_fecha_inicio">
+        <property name="text">
+         <string>Fecha inicial</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDateEdit" name="date_inicio"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="lbl_fecha_fin">
+        <property name="text">
+         <string>Fecha final</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDateEdit" name="date_fin"/>
       </item>
      </layout>
     </item>
