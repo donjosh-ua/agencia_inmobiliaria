@@ -1,14 +1,14 @@
-import inicioSesion
+from client.controller import InicioSesion
 
 
 class Main:
 
     def __init__(self) -> None:
-        Main.run()
+        self.run()
 
-    @staticmethod
-    def run() -> None:
-        inicioSesion.InicioSesion.start()
+    @classmethod
+    def run(cls) -> None:
+        InicioSesion.InicioSesion.start()
 
 
 if __name__ == '__main__':
