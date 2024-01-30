@@ -54,14 +54,23 @@ class Inmuebles(QtWidgets.QMainWindow):
         area = self.ui.txtArea.text()
         specs = self.vl.get_caracteristicas() if self.vl is not None else []
         estado = 'Disponible'
-        anio = int(self.ui.txtAnio.text())
+        anio = self.ui.txtAnio.text()
+
+        if not nombre or not direccion or not area or not anio:
+            return
+
+        try:
+            area = float(area)
+            anio = int(anio)
+        except ValueError:
+            return
 
         sector_id = DBManager().select('Sector', 'id', f"nombre = '{sector}'")[0][0]
         tipo_id = DBManager().select('Tipo_Inmueble', 'id', f"nombre = '{tipo}'")[0][0]
         estado_id = DBManager().select('Estado_Inmueble', 'id', f"nombre = '{estado}'")[0][0]
 
         db = DBManager()
-        db.insert('Inmueble', f"'{id_inmueble}', '{nombre}', '{direccion}', '{sector_id}', '{tipo_id}', '{estado_id}', '{area}', '{anio}'")
+        db.insert('Inmueble', f"'{id_inmueble}', '{nombre}', '{direccion}', '{sector_id}', '{tipo_id}', '{estado_id}', '{anio}', '{area}'")
 
         for spec in specs:
             spec_id, _, valor = spec
