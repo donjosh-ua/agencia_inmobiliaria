@@ -36,6 +36,7 @@ class Empleados(QtWidgets.QMainWindow):
         db = DBManager()
         db.insert('Empleado', f"'{cedula}', '{nombre}', '{telefono}', '{correo}', '{direccion}'")
         db.close()
+        self.salir()
 
     def modificar(self):
 
