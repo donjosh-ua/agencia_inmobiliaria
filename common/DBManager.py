@@ -1,7 +1,16 @@
 import psycopg2
 
 
+# Singleton DBManager
 class DBManager:
+
+    _instance = None
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super(DBManager, cls).__new__(cls)
+            cls.__init__(cls._instance)
+        return cls._instance
 
     def __init__(self):
         self.conn = psycopg2.connect(

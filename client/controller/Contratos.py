@@ -1,11 +1,9 @@
 from PyQt6 import QtWidgets
 from view import contratosView
-from common import DBManager
+from common.DBManager import DBManager
 
 
 class Contratos(QtWidgets.QMainWindow):
-
-    db = DBManager.DBManager()
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -18,9 +16,11 @@ class Contratos(QtWidgets.QMainWindow):
         self.vl = None
 
     def cargar_combo(self):
-        tipos = Contratos.db.select('Tipo_Contrato', '*', 'true')
+        db = DBManager()
+        tipos = db.select('Tipo_Contrato', '*', 'true')
         for tipo in tipos:
             self.ui.comboBox.addItem(tipo[1])
+        db.close()
 
     def ingresar_inmueble(self) -> None:
         from client.controller import Inmuebles

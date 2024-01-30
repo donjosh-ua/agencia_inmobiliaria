@@ -1,11 +1,9 @@
 from PyQt6 import QtWidgets
 from view import reportesView
-from common import DBManager
+from common.DBManager import DBManager
 
 
 class Reportes(QtWidgets.QMainWindow):
-
-    db = DBManager.DBManager()
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -18,9 +16,11 @@ class Reportes(QtWidgets.QMainWindow):
         self.ui.cbxTipoReporte.currentTextChanged.connect(self.esconder_elementos)
 
     def cargar_combo_tipo_inmueble(self):
-        tipos = Reportes.db.select('Tipo_Inmueble', '*', 'true')
+        db = DBManager()
+        tipos = db.select('Tipo_Inmueble', '*', 'true')
         for tipo in tipos:
             self.ui.cbxTipoInmueble.addItem(tipo[2])
+        db.close()
 
     def esconder_elementos(self):
 

@@ -1,7 +1,6 @@
 from PyQt6 import QtWidgets
-
-from common.DBManager import DBManager
 from view import formPersonas
+from common.DBManager import DBManager
 
 
 class Clientes(QtWidgets.QMainWindow):
@@ -20,7 +19,7 @@ class Clientes(QtWidgets.QMainWindow):
         direccion = self.ui.txtDireccion.text()
         correo = self.ui.txtCorreo.text()
         db = DBManager()
-        db.insert('Cliente',f"'{cedula}','{nombre}','{telefono}','{correo}','{direccion}'")
+        db.insert('Cliente', f"'{cedula}', '{nombre}', '{telefono}', '{correo}', '{direccion}'")
         db.close()
         self.salir()
 
