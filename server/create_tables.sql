@@ -1,27 +1,21 @@
-CREATE TABLE Tipo_Empleado(
-	ID	INT,
-	Detalle	TEXT NOT NULL
-)
-
 CREATE TABLE Empleado(
 	Cedula      VARCHAR(10) PRIMARY KEY,
 	Nombre      TEXT NOT NULL,
 	Telefono    TEXT NOT NULL,
 	Email       TEXT NOT NULL,
-	Direccion   TEXT NOT NULL,
-	Tipo        INT REFERENCES Tipo_Empleado(ID)
+	Direccion   TEXT NOT NULL
 );
 
 CREATE TABLE Ciudad(
-	ID	    INT,
+	ID	    INT PRIMARY KEY,
 	Nombre	VARCHAR
-)
+);
 
 CREATE TABLE Sector(
-	ID	        INT,
+	ID	        INT PRIMARY KEY,
 	Nombre	    VARCHAR,
 	ID_Ciudad	INT REFERENCES Ciudad(ID)
-)
+);
 
 CREATE TABLE Cliente(
 	Cedula      VARCHAR(10) PRIMARY KEY,
@@ -49,8 +43,8 @@ CREATE TABLE Estado_Inmueble(
 
 CREATE TABLE Caracteristica(
 	ID	        INT PRIMARY KEY,
-	Descripcion	TEXT,
-)
+	Descripcion	TEXT
+);
 
 CREATE TABLE Inmueble (
 	ID                  INT PRIMARY KEY,
@@ -68,7 +62,7 @@ CREATE TABLE Inmueble_Caracteristica(
 	Inmueble	    INT REFERENCES Inmueble(ID),
 	Caracteristica	INT REFERENCES Caracteristica(ID),
 	Valor	        VARCHAR
-)
+);
 
 CREATE TABLE Tipo_Contrato(
 	ID	    INT PRIMARY KEY,
@@ -78,7 +72,7 @@ CREATE TABLE Tipo_Contrato(
 CREATE TABLE Contrato (
 	ID              INT PRIMARY KEY,
 	Inmueble        INT REFERENCES Inmueble(ID),
-	Comprador       VARCHAR(10) REFERENCES Clientes(Cedula),
+	Comprador       VARCHAR(10) REFERENCES Cliente(Cedula),
 	Agente          VARCHAR(10) REFERENCES Empleado(Cedula),
 	Tipo	        INT REFERENCES Tipo_Contrato(ID),
 	Fecha_Venta     DATE,
