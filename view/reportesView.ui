@@ -294,6 +294,12 @@ color: #1f1f1f;</string>
 	border-radius: 4px;
 }</string>
       </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>100</number>
+      </attribute>
+      <attribute name="horizontalHeaderStretchLastSection">
+       <bool>true</bool>
+      </attribute>
      </widget>
     </item>
     <item alignment="Qt::AlignHCenter">

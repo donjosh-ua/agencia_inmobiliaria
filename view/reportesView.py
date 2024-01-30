@@ -142,6 +142,8 @@ class Ui_MainWindow(object):
         self.tblReportes.setObjectName("tblReportes")
         self.tblReportes.setColumnCount(0)
         self.tblReportes.setRowCount(0)
+        self.tblReportes.horizontalHeader().setDefaultSectionSize(100)
+        self.tblReportes.horizontalHeader().setStretchLastSection(True)
         self.verticalLayout.addWidget(self.tblReportes)
         self.btnSalir = QtWidgets.QPushButton(parent=self.centralwidget)
         self.btnSalir.setMinimumSize(QtCore.QSize(100, 25))

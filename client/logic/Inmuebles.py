@@ -52,7 +52,7 @@ class Inmuebles(QtWidgets.QMainWindow):
         tipo = self.ui.cbxTipo.currentText()
         sector = self.ui.cbxSector.currentText()
         area = self.ui.txtArea.text()
-        specs = self.vl.get_caracteristicas()
+        specs = self.vl.get_caracteristicas() if self.vl is not None else []
         estado = 'Disponible'
         anio = int(self.ui.txtAnio.text())
 
@@ -63,17 +63,14 @@ class Inmuebles(QtWidgets.QMainWindow):
         db = DBManager()
         db.insert('Inmueble', f"'{id_inmueble}', '{nombre}', '{direccion}', '{sector_id}', '{tipo_id}', '{estado_id}', '{area}', '{anio}'")
 
-        if self.vl is not None:
-            specs = self.vl.get_caracteristicas()
-
         for spec in specs:
             spec_id, _, valor = spec
             db.insert('Inmueble_Caracteristica', f"'{id_inmueble}', '{spec_id}', '{valor}'")
 
         db.close()
 
-        self.cbx.addItem(nombre)
-        self.cbx.setCurrentText(nombre)
+        self.cbx.addItem(f'{id_inmueble}-{nombre}')
+        self.cbx.setCurrentText(f'{id_inmueble}-{nombre}')
 
         msg = QtWidgets.QMessageBox()
         msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
