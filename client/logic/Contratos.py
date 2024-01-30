@@ -24,6 +24,7 @@ class Contratos(QtWidgets.QMainWindow):
         self.ui.btnSalir.clicked.connect(self.salir)
         self.ui.btnIngresarInmueble.clicked.connect(self.ingresar_inmueble)
         self.ui.btnIngresarCliente.clicked.connect(self.ingresar_cliente)
+        self.ui.btnConfirmar.clicked.connect(self.agregar_contrato)
         self.vl = None
 
     def agregar_contrato(self):
@@ -31,14 +32,18 @@ class Contratos(QtWidgets.QMainWindow):
         inmueble = int(self.ui.cbxInmuebles.currentText().split("-")[0])
         cliente = self.ui.cbxClientes.currentText()
         agente = self.ui.cbxAgentes.currentText()
-        tipo = int(self.ui.comboBox.currentText())
+        tipo = self.ui.comboBox.currentText()
         fecha_inicio = self.ui.dateInicioContrato.date().toPyDate().strftime('%Y-%m-%d')
-        fecha_fin = None
+        fecha_fin = "null"
         if tipo == "Venta": fecha_fin = self.ui.dateFinContrato.date().toPyDate().strftime('%Y-%m-%d')
         precio = float(self.ui.txtValor.text())
 
         db = DBManager()
-        db.insert('Contrato', f"'{id}', {inmueble}, '{cliente}', '{agente}', {tipo},'{fecha_inicio}','{fecha_fin}',{precio}")
+        tipo = db.select('Tipo_Contrato', '*', f"nombre = '{self.ui.comboBox.currentText()}'")[0][0]
+        db.close()
+
+        db = DBManager()
+        db.insert('Contrato', f"'{id}', '{inmueble}', '{cliente}', '{agente}', '{tipo}','{fecha_inicio}',{fecha_fin},'{precio}'")
         db.close()
 
     def cargar_combo_tipo(self):
