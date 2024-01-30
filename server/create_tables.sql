@@ -66,8 +66,8 @@ CREATE TABLE Inmueble_Caracteristica(
 );
 
 CREATE TABLE Tipo_Contrato(
-	ID	INT PRIMARY KEY,
-	Detalle	TEXT
+	ID	    INT PRIMARY KEY,
+	Nombre	TEXT
 );
 
 CREATE TABLE Contrato (
