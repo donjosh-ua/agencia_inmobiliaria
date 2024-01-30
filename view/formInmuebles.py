@@ -77,19 +77,6 @@ class Ui_MainWindow(object):
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
         self.formulario.setWidget(2, QtWidgets.QFormLayout.ItemRole.LabelRole, self.label_4)
-        self.txtSector = QtWidgets.QLineEdit(parent=self.form)
-        self.txtSector.setMinimumSize(QtCore.QSize(300, 0))
-        self.txtSector.setMaximumSize(QtCore.QSize(300, 16777215))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.txtSector.setFont(font)
-        self.txtSector.setStyleSheet("QLineEdit{\n"
-"    color: black;\n"
-"    background-color: white;\n"
-"    border-radius: 4px;\n"
-"}")
-        self.txtSector.setObjectName("txtSector")
-        self.formulario.setWidget(2, QtWidgets.QFormLayout.ItemRole.FieldRole, self.txtSector)
         self.label_6 = QtWidgets.QLabel(parent=self.form)
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -115,19 +102,6 @@ class Ui_MainWindow(object):
         self.label_8.setFont(font)
         self.label_8.setObjectName("label_8")
         self.formulario.setWidget(4, QtWidgets.QFormLayout.ItemRole.LabelRole, self.label_8)
-        self.txtTipo = QtWidgets.QLineEdit(parent=self.form)
-        self.txtTipo.setMinimumSize(QtCore.QSize(300, 0))
-        self.txtTipo.setMaximumSize(QtCore.QSize(300, 16777215))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.txtTipo.setFont(font)
-        self.txtTipo.setStyleSheet("QLineEdit{\n"
-"    color: black;\n"
-"    background-color: white;\n"
-"    border-radius: 4px;\n"
-"}")
-        self.txtTipo.setObjectName("txtTipo")
-        self.formulario.setWidget(4, QtWidgets.QFormLayout.ItemRole.FieldRole, self.txtTipo)
         self.label_5 = QtWidgets.QLabel(parent=self.form)
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -150,6 +124,28 @@ class Ui_MainWindow(object):
 "}")
         self.btnCaracteristicas.setObjectName("btnCaracteristicas")
         self.formulario.setWidget(6, QtWidgets.QFormLayout.ItemRole.FieldRole, self.btnCaracteristicas)
+        self.cbxSector = QtWidgets.QComboBox(parent=self.form)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.cbxSector.setFont(font)
+        self.cbxSector.setStyleSheet("QComboBox{\n"
+"    color: black;\n"
+"    background-color: white;\n"
+"    border-radius: 4px;\n"
+"}")
+        self.cbxSector.setObjectName("cbxSector")
+        self.formulario.setWidget(2, QtWidgets.QFormLayout.ItemRole.FieldRole, self.cbxSector)
+        self.cbxTipo = QtWidgets.QComboBox(parent=self.form)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.cbxTipo.setFont(font)
+        self.cbxTipo.setStyleSheet("QComboBox{\n"
+"    color: black;\n"
+"    background-color: white;\n"
+"    border-radius: 4px;\n"
+"}")
+        self.cbxTipo.setObjectName("cbxTipo")
+        self.formulario.setWidget(4, QtWidgets.QFormLayout.ItemRole.FieldRole, self.cbxTipo)
         self.verticalLayout.addWidget(self.form, 0, QtCore.Qt.AlignmentFlag.AlignHCenter|QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.widget = QtWidgets.QWidget(parent=self.centralwidget)
         self.widget.setMaximumSize(QtCore.QSize(16777215, 40))

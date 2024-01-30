@@ -33,6 +33,7 @@ class Empleados(QtWidgets.QMainWindow):
         db = DBManager()
         datos = db.select('Empleado', '*', f"Cedula = '{cedula}'")
         db.close()
+        
         self.ui.txtModificarNombre.setPlaceholderText(datos[0][1])
         self.ui.txtModificarTelefono.setPlaceholderText(datos[0][2])
         self.ui.txtModificarCorreo.setPlaceholderText(datos[0][3])
