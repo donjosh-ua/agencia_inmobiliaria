@@ -40,88 +40,158 @@ color: #1f1f1f;</string>
       </property>
      </widget>
     </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Filtro</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="cbxTipoReporte">
-        <property name="styleSheet">
-         <string notr="true">QComboBox{
+    <item alignment="Qt::AlignHCenter">
+     <widget class="QWidget" name="" native="true">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Filtro</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="cbxTipoReporte">
+         <property name="maximumSize">
+          <size>
+           <width>200</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QComboBox{
 	color: black;
 	background-color: white;
 	border-radius: 4px;
 }
 </string>
-        </property>
-        <item>
-         <property name="text">
-          <string>Ventas por agente</string>
          </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Inmuebles de un tipo especifico</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Inmuebles vendidos por sector</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Inmuebles disponibles para la venta</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Ventas en un rango de fechas</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-     </layout>
+         <item>
+          <property name="text">
+           <string>Ventas por agente</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Inmuebles de un tipo especifico</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Inmuebles vendidos por sector</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Inmuebles disponibles para la venta</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Ventas en un rango de fechas</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <widget class="QLabel" name="lbl_inmueble_elegido">
-        <property name="text">
-         <string>Inmueble</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="cbx_inmueble_elegido">
-        <property name="styleSheet">
-         <string notr="true">QComboBox{
+    <item alignment="Qt::AlignHCenter">
+     <widget class="QWidget" name="" native="true">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="lblInmuebleElegido">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Inmueble</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="cbxInmuebleElegido">
+         <property name="minimumSize">
+          <size>
+           <width>150</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QComboBox{
 	color: black;
 	background-color: white;
 	border-radius: 4px;
-}
-</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
+}</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
        <widget class="QLabel" name="lbl_fecha_inicio">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Fecha inicial</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QDateEdit" name="date_inicio">
+       <widget class="QDateEdit" name="dateInicio">
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>100</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">QDateEdit{
 	color: black;
@@ -133,14 +203,52 @@ color: #1f1f1f;</string>
        </widget>
       </item>
       <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
        <widget class="QLabel" name="lbl_fecha_fin">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Fecha final</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QDateEdit" name="date_fin">
+       <widget class="QDateEdit" name="dateFin">
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>100</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">QDateEdit{
 	color: black;
@@ -151,12 +259,38 @@ color: #1f1f1f;</string>
         </property>
        </widget>
       </item>
+      <item>
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
      </layout>
     </item>
     <item>
-     <widget class="QTableWidget" name="tblReportes"/>
+     <widget class="QTableWidget" name="tblReportes">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTableWidget{
+	color: black;
+	background-color: white;
+	border-radius: 4px;
+}</string>
+      </property>
+     </widget>
     </item>
-    <item>
+    <item alignment="Qt::AlignHCenter">
      <widget class="QPushButton" name="btnSalir">
       <property name="minimumSize">
        <size>
