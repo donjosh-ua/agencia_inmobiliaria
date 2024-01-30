@@ -9,11 +9,11 @@ class Contratos(QtWidgets.QMainWindow):
         super().__init__(parent)
         self.ui = contratosView.Ui_MainWindow()
         self.ui.setupUi(self)
+        self.ui.comboBox.currentTextChanged.connect(self.esconder_elementos)
         self.cargar_combo()
         self.ui.btnSalir.clicked.connect(self.salir)
         self.ui.btnIngresarInmueble.clicked.connect(self.ingresar_inmueble)
         self.ui.btnIngresarCliente.clicked.connect(self.ingresar_cliente)
-        self.ui.comboBox.currentTextChanged.connect(self.esconder_elementos)
         self.vl = None
 
     def cargar_combo(self):
@@ -35,7 +35,7 @@ class Contratos(QtWidgets.QMainWindow):
 
     def esconder_elementos(self):
 
-        self.ui.lbl.setVisible(False)
+        self.ui.lblFechaFin.setVisible(False)
         self.ui.dateFinContrato.setVisible(False)
 
         if self.ui.comboBox.currentText() == 'Venta':
