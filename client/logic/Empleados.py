@@ -67,6 +67,13 @@ class Empleados(QtWidgets.QMainWindow):
         db.insert('Empleado', f"'{cedula}', '{nombre}', '{telefono}', '{correo}', '{direccion}'")
         db.close()
 
+        msg = QtWidgets.QMessageBox()
+        msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
+        msg.setText("Empleado agregado correctamente")
+        msg.setWindowTitle("Inmueble")
+        msg.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
+        msg.exec()
+
         self.cargar_combo_box()
         self.limpiar_campos_agregar()
         self.salir()

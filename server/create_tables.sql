@@ -77,5 +77,6 @@ CREATE TABLE Contrato (
 	Tipo	        INT REFERENCES Tipo_Contrato(ID),
 	Fecha_Inicio    DATE,
 	Fecha_Fin       DATE,
+	Comision        NUMERIC,
 	Precio_Venta    NUMERIC
 );

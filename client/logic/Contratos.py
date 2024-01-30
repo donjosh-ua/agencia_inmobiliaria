@@ -1,6 +1,7 @@
-from PyQt6 import QtWidgets
+from PyQt6 import QtWidgets, QtCore
 from view import contratosView
 from common.DBManager import DBManager
+
 
 def get_new_contrato_id():
 
@@ -10,6 +11,7 @@ def get_new_contrato_id():
 
     return count + 1
 
+
 class Contratos(QtWidgets.QMainWindow):
 
     def __init__(self, parent=None):
@@ -17,6 +19,7 @@ class Contratos(QtWidgets.QMainWindow):
         self.ui = contratosView.Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.comboBox.currentTextChanged.connect(self.esconder_elementos)
+        self.limpiar_campos()
         self.cargar_combo_tipo()
         self.cargar_combo_inmueble()
         self.cargar_combo_cliente()
@@ -27,24 +30,55 @@ class Contratos(QtWidgets.QMainWindow):
         self.ui.btnConfirmar.clicked.connect(self.agregar_contrato)
         self.vl = None
 
+    def limpiar_campos(self):
+        self.ui.cbxInmuebles.setCurrentIndex(0)
+        self.ui.cbxClientes.setCurrentIndex(0)
+        self.ui.cbxAgentes.setCurrentIndex(0)
+        self.ui.comboBox.setCurrentIndex(0)
+        self.ui.dateInicioContrato.setDate(QtCore.QDate.currentDate())
+        self.ui.dateFinContrato.setDate(QtCore.QDate.currentDate())
+        self.ui.txtValor.setText("")
+        self.ui.txtComision.setText("")
+
     def agregar_contrato(self):
-        id = get_new_contrato_id()
-        inmueble = int(self.ui.cbxInmuebles.currentText().split("-")[0])
+
+        id_contrato = get_new_contrato_id()
+        inmueble = self.ui.cbxInmuebles.currentText()
         cliente = self.ui.cbxClientes.currentText()
         agente = self.ui.cbxAgentes.currentText()
         tipo = self.ui.comboBox.currentText()
         fecha_inicio = self.ui.dateInicioContrato.date().toPyDate().strftime('%Y-%m-%d')
         fecha_fin = "null"
-        if tipo == "Venta": fecha_fin = self.ui.dateFinContrato.date().toPyDate().strftime('%Y-%m-%d')
-        precio = float(self.ui.txtValor.text())
+
+        if tipo == "Venta":
+            fecha_fin = self.ui.dateFinContrato.date().toPyDate().strftime('%Y-%m-%d')
+
+        if not inmueble or not cliente or not agente or not tipo or not fecha_inicio or not fecha_fin:
+            return
+
+        inmueble = inmueble.split('-')[0]
+
+        try:
+            precio = float(self.ui.txtValor.text())
+            comision = float(self.ui.txtComision.text())
+        except ValueError:
+            return
 
         db = DBManager()
+
         tipo = db.select('Tipo_Contrato', '*', f"nombre = '{self.ui.comboBox.currentText()}'")[0][0]
+        db.insert('Contrato', f"'{id_contrato}', '{inmueble}', '{cliente}', '{agente}', '{tipo}', '{fecha_inicio}', {fecha_fin}, '{comision}', '{precio}'")
+
         db.close()
 
-        db = DBManager()
-        db.insert('Contrato', f"'{id}', '{inmueble}', '{cliente}', '{agente}', '{tipo}','{fecha_inicio}',{fecha_fin},'{precio}'")
-        db.close()
+        msg = QtWidgets.QMessageBox()
+        msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
+        msg.setText("Contrato realizado correctamente")
+        msg.setWindowTitle("Inmueble")
+        msg.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
+        msg.exec()
+
+        self.limpiar_campos()
 
     def cargar_combo_tipo(self):
         db = DBManager()
