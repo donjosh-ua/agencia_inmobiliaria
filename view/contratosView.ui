@@ -128,7 +128,7 @@ color: #1f1f1f;</string>
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
        <item row="0" column="0">
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="lblFechaInicio">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -171,7 +171,11 @@ color: #1f1f1f;</string>
         </widget>
        </item>
        <item row="1" column="0">
+<<<<<<< HEAD
         <widget class="QLabel" name="lbl_final">
+=======
+        <widget class="QLabel" name="lblFechaFin">
+>>>>>>> 2e2fd1a7b584add2993d86b7711f819c9aee84bf
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -308,34 +312,32 @@ color: #1f1f1f;</string>
        <item row="4" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
-          <widget class="QPushButton" name="btnSeleccionarCliente">
+          <widget class="QComboBox" name="cbxClientes">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">QPushButton{
+            <string notr="true">QComboBox{
 	color: black;
 	background-color: white;
 	border-radius: 4px;
-}
-
-QPushButton::hover {
-	background-color: #3081D0;
-	color: white;
 }</string>
-           </property>
-           <property name="text">
-            <string>Seleccionar cliente</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="btnIngresarCliente">
+           <property name="minimumSize">
+            <size>
+             <width>70</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="maximumSize">
             <size>
-             <width>60</width>
+             <width>70</width>
              <height>16777215</height>
             </size>
            </property>
@@ -390,34 +392,32 @@ QPushButton::hover {
        <item row="5" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_5">
          <item>
-          <widget class="QPushButton" name="btnSeleccionarInmueble">
+          <widget class="QComboBox" name="cbxInmuebles">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">QPushButton{
+            <string notr="true">QComboBox{
 	color: black;
 	background-color: white;
 	border-radius: 4px;
-}
-
-QPushButton::hover {
-	background-color: #3081D0;
-	color: white;
 }</string>
-           </property>
-           <property name="text">
-            <string>Seleccionar inmueble</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="btnIngresarInmueble">
+           <property name="minimumSize">
+            <size>
+             <width>70</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="maximumSize">
             <size>
-             <width>60</width>
+             <width>70</width>
              <height>16777215</height>
             </size>
            </property>
@@ -448,26 +448,18 @@ QPushButton::hover {
        <item row="6" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_6">
          <item>
-          <widget class="QPushButton" name="btnSeleccionarAgente">
+          <widget class="QComboBox" name="cbxAgentes">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">QPushButton{
+            <string notr="true">QComboBox{
 	color: black;
 	background-color: white;
 	border-radius: 4px;
-}
-
-QPushButton::hover {
-	background-color: #3081D0;
-	color: white;
 }</string>
-           </property>
-           <property name="text">
-            <string>Seleccionar agente</string>
            </property>
           </widget>
          </item>
@@ -505,6 +497,12 @@ QPushButton::hover {
         <width>100</width>
         <height>25</height>
        </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Bitstream Charter</family>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
