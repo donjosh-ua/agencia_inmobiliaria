@@ -6,9 +6,9 @@ class DBManager:
     def __init__(self):
         self.conn = psycopg2.connect(
             host='localhost',
-            dbname='concesionario_vehiculos',
+            dbname='bienes_raices',
             user='postgres',
-            password='12345678',
+            password='postgres1234',
             port=5432)
         self.c = self.conn.cursor()
 

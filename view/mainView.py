@@ -29,6 +29,8 @@ class Ui_MainWindow(object):
         self.label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label.setObjectName("label")
         self.verticalLayout.addWidget(self.label)
+        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.verticalLayout.addItem(spacerItem)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.btnEmpleados = QtWidgets.QPushButton(parent=self.centralwidget)
@@ -84,6 +86,8 @@ class Ui_MainWindow(object):
         self.btnReportes.setObjectName("btnReportes")
         self.horizontalLayout.addWidget(self.btnReportes)
         self.verticalLayout.addLayout(self.horizontalLayout)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.verticalLayout.addItem(spacerItem1)
         self.horizontalWidget_2 = QtWidgets.QWidget(parent=self.centralwidget)
         self.horizontalWidget_2.setMaximumSize(QtCore.QSize(16777215, 60))
         self.horizontalWidget_2.setStyleSheet("background-color: #3f3f3f;\n"

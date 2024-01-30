@@ -41,7 +41,7 @@ color: #1f1f1f;</string>
      </widget>
     </item>
     <item alignment="Qt::AlignHCenter">
-     <widget class="QWidget" name="" native="true">
+     <widget class="QWidget" name="widget" native="true">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <widget class="QLabel" name="label_2">
@@ -107,7 +107,7 @@ color: #1f1f1f;</string>
      </widget>
     </item>
     <item alignment="Qt::AlignHCenter">
-     <widget class="QWidget" name="" native="true">
+     <widget class="QWidget" name="widget" native="true">
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
         <widget class="QLabel" name="lblInmuebleElegido">
@@ -117,12 +117,12 @@ color: #1f1f1f;</string>
           </font>
          </property>
          <property name="text">
-          <string>Inmueble</string>
+          <string>Tipo</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="cbxInmuebleElegido">
+        <widget class="QComboBox" name="cbxTipoInmueble">
          <property name="minimumSize">
           <size>
            <width>150</width>
@@ -200,6 +200,9 @@ color: #1f1f1f;</string>
 }
 </string>
         </property>
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
@@ -256,6 +259,9 @@ color: #1f1f1f;</string>
 	border-radius: 4px;
 }
 </string>
+        </property>
+        <property name="calendarPopup">
+         <bool>true</bool>
         </property>
        </widget>
       </item>

@@ -78,6 +78,7 @@ class Ui_MainWindow(object):
 "    background-color: white;\n"
 "    border-radius: 4px;\n"
 "}")
+        self.dateInicioContrato.setCalendarPopup(True)
         self.dateInicioContrato.setObjectName("dateInicioContrato")
         self.formLayout_2.setWidget(0, QtWidgets.QFormLayout.ItemRole.FieldRole, self.dateInicioContrato)
         self.label_3 = QtWidgets.QLabel(parent=self.formWidget)
@@ -97,6 +98,7 @@ class Ui_MainWindow(object):
 "    background-color: white;\n"
 "    border-radius: 4px;\n"
 "}")
+        self.dateFinContrato.setCalendarPopup(True)
         self.dateFinContrato.setObjectName("dateFinContrato")
         self.formLayout_2.setWidget(1, QtWidgets.QFormLayout.ItemRole.FieldRole, self.dateFinContrato)
         self.label_4 = QtWidgets.QLabel(parent=self.formWidget)
@@ -245,23 +247,6 @@ class Ui_MainWindow(object):
 "}")
         self.btnSeleccionarAgente.setObjectName("btnSeleccionarAgente")
         self.horizontalLayout_6.addWidget(self.btnSeleccionarAgente)
-        self.btnIngresarAgente = QtWidgets.QPushButton(parent=self.formWidget)
-        self.btnIngresarAgente.setMaximumSize(QtCore.QSize(60, 16777215))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.btnIngresarAgente.setFont(font)
-        self.btnIngresarAgente.setStyleSheet("QPushButton{\n"
-"    color: black;\n"
-"    background-color: white;\n"
-"    border-radius: 4px;\n"
-"}\n"
-"\n"
-"QPushButton::hover {\n"
-"    background-color: #3081D0;\n"
-"    color: white;\n"
-"}")
-        self.btnIngresarAgente.setObjectName("btnIngresarAgente")
-        self.horizontalLayout_6.addWidget(self.btnIngresarAgente)
         self.formLayout_2.setLayout(6, QtWidgets.QFormLayout.ItemRole.FieldRole, self.horizontalLayout_6)
         self.verticalLayout.addWidget(self.formWidget, 0, QtCore.Qt.AlignmentFlag.AlignHCenter)
         spacerItem2 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
@@ -323,6 +308,5 @@ class Ui_MainWindow(object):
         self.btnSeleccionarInmueble.setText(_translate("MainWindow", "Seleccionar inmueble"))
         self.btnIngresarInmueble.setText(_translate("MainWindow", "Ingresar"))
         self.btnSeleccionarAgente.setText(_translate("MainWindow", "Seleccionar agente"))
-        self.btnIngresarAgente.setText(_translate("MainWindow", "Ingresar"))
         self.btnConfirmar.setText(_translate("MainWindow", "Confirmar"))
         self.btnSalir.setText(_translate("MainWindow", "Salir"))

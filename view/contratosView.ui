@@ -165,6 +165,9 @@ color: #1f1f1f;</string>
 	border-radius: 4px;
 }</string>
          </property>
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item row="1" column="0">
@@ -204,6 +207,9 @@ color: #1f1f1f;</string>
 	background-color: white;
 	border-radius: 4px;
 }</string>
+         </property>
+         <property name="calendarPopup">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -462,36 +468,6 @@ QPushButton::hover {
            </property>
            <property name="text">
             <string>Seleccionar agente</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btnIngresarAgente">
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{
-	color: black;
-	background-color: white;
-	border-radius: 4px;
-}
-
-QPushButton::hover {
-	background-color: #3081D0;
-	color: white;
-}</string>
-           </property>
-           <property name="text">
-            <string>Ingresar</string>
            </property>
           </widget>
          </item>

@@ -66,18 +66,18 @@ class Ui_MainWindow(object):
         self.lblInmuebleElegido.setFont(font)
         self.lblInmuebleElegido.setObjectName("lblInmuebleElegido")
         self.horizontalLayout_2.addWidget(self.lblInmuebleElegido)
-        self.cbxInmuebleElegido = QtWidgets.QComboBox(parent=self.widget1)
-        self.cbxInmuebleElegido.setMinimumSize(QtCore.QSize(150, 0))
+        self.cbxTipoInmueble = QtWidgets.QComboBox(parent=self.widget1)
+        self.cbxTipoInmueble.setMinimumSize(QtCore.QSize(150, 0))
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.cbxInmuebleElegido.setFont(font)
-        self.cbxInmuebleElegido.setStyleSheet("QComboBox{\n"
+        self.cbxTipoInmueble.setFont(font)
+        self.cbxTipoInmueble.setStyleSheet("QComboBox{\n"
 "    color: black;\n"
 "    background-color: white;\n"
 "    border-radius: 4px;\n"
 "}")
-        self.cbxInmuebleElegido.setObjectName("cbxInmuebleElegido")
-        self.horizontalLayout_2.addWidget(self.cbxInmuebleElegido)
+        self.cbxTipoInmueble.setObjectName("cbxTipoInmueble")
+        self.horizontalLayout_2.addWidget(self.cbxTipoInmueble)
         self.verticalLayout.addWidget(self.widget1, 0, QtCore.Qt.AlignmentFlag.AlignHCenter)
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
@@ -101,6 +101,7 @@ class Ui_MainWindow(object):
 "    border-radius: 4px;\n"
 "}\n"
 "")
+        self.dateInicio.setCalendarPopup(True)
         self.dateInicio.setObjectName("dateInicio")
         self.horizontalLayout_3.addWidget(self.dateInicio)
         spacerItem1 = QtWidgets.QSpacerItem(40, 0, QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Minimum)
@@ -123,6 +124,7 @@ class Ui_MainWindow(object):
 "    border-radius: 4px;\n"
 "}\n"
 "")
+        self.dateFin.setCalendarPopup(True)
         self.dateFin.setObjectName("dateFin")
         self.horizontalLayout_3.addWidget(self.dateFin)
         spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
@@ -171,7 +173,7 @@ class Ui_MainWindow(object):
         self.cbxTipoReporte.setItemText(2, _translate("MainWindow", "Inmuebles vendidos por sector"))
         self.cbxTipoReporte.setItemText(3, _translate("MainWindow", "Inmuebles disponibles para la venta"))
         self.cbxTipoReporte.setItemText(4, _translate("MainWindow", "Ventas en un rango de fechas"))
-        self.lblInmuebleElegido.setText(_translate("MainWindow", "Inmueble"))
+        self.lblInmuebleElegido.setText(_translate("MainWindow", "Tipo"))
         self.lbl_fecha_inicio.setText(_translate("MainWindow", "Fecha inicial"))
         self.lbl_fecha_fin.setText(_translate("MainWindow", "Fecha final"))
         self.btnSalir.setText(_translate("MainWindow", "Salir"))
