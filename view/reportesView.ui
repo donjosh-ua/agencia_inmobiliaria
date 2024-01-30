@@ -27,6 +27,11 @@ color: #1f1f1f;</string>
         <height>60</height>
        </size>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>24</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Reportes</string>
       </property>
@@ -46,6 +51,14 @@ color: #1f1f1f;</string>
       </item>
       <item>
        <widget class="QComboBox" name="cbxTipoReporte">
+        <property name="styleSheet">
+         <string notr="true">QComboBox{
+	color: black;
+	background-color: white;
+	border-radius: 4px;
+}
+</string>
+        </property>
         <item>
          <property name="text">
           <string>Ventas por agente</string>
@@ -85,7 +98,16 @@ color: #1f1f1f;</string>
        </widget>
       </item>
       <item>
-       <widget class="QComboBox" name="cbx_inmueble_elegido"/>
+       <widget class="QComboBox" name="cbx_inmueble_elegido">
+        <property name="styleSheet">
+         <string notr="true">QComboBox{
+	color: black;
+	background-color: white;
+	border-radius: 4px;
+}
+</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -99,7 +121,16 @@ color: #1f1f1f;</string>
        </widget>
       </item>
       <item>
-       <widget class="QDateEdit" name="date_inicio"/>
+       <widget class="QDateEdit" name="date_inicio">
+        <property name="styleSheet">
+         <string notr="true">QDateEdit{
+	color: black;
+	background-color: white;
+	border-radius: 4px;
+}
+</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QLabel" name="lbl_fecha_fin">
@@ -109,7 +140,16 @@ color: #1f1f1f;</string>
        </widget>
       </item>
       <item>
-       <widget class="QDateEdit" name="date_fin"/>
+       <widget class="QDateEdit" name="date_fin">
+        <property name="styleSheet">
+         <string notr="true">QDateEdit{
+	color: black;
+	background-color: white;
+	border-radius: 4px;
+}
+</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>

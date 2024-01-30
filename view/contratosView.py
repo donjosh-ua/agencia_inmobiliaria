@@ -20,91 +20,148 @@ class Ui_MainWindow(object):
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName("verticalLayout")
         self.label = QtWidgets.QLabel(parent=self.centralwidget)
+        self.label.setMinimumSize(QtCore.QSize(0, 60))
+        self.label.setMaximumSize(QtCore.QSize(16777215, 60))
+        font = QtGui.QFont()
+        font.setPointSize(24)
+        self.label.setFont(font)
         self.label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label.setObjectName("label")
         self.verticalLayout.addWidget(self.label)
-        self.tabWidget = QtWidgets.QTabWidget(parent=self.centralwidget)
-        self.tabWidget.setObjectName("tabWidget")
-        self.tab = QtWidgets.QWidget()
-        self.tab.setObjectName("tab")
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.tab)
-        self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.label_3 = QtWidgets.QLabel(parent=self.tab)
-        self.label_3.setMaximumSize(QtCore.QSize(16777215, 60))
-        self.label_3.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.label_3.setObjectName("label_3")
-        self.verticalLayout_3.addWidget(self.label_3)
-        self.formularioCompra = QtWidgets.QFormLayout()
-        self.formularioCompra.setObjectName("formularioCompra")
-        self.label_4 = QtWidgets.QLabel(parent=self.tab)
-        self.label_4.setObjectName("label_4")
-        self.formularioCompra.setWidget(0, QtWidgets.QFormLayout.ItemRole.LabelRole, self.label_4)
-        self.label_5 = QtWidgets.QLabel(parent=self.tab)
-        self.label_5.setObjectName("label_5")
-        self.formularioCompra.setWidget(1, QtWidgets.QFormLayout.ItemRole.LabelRole, self.label_5)
-        self.label_6 = QtWidgets.QLabel(parent=self.tab)
-        self.label_6.setObjectName("label_6")
-        self.formularioCompra.setWidget(2, QtWidgets.QFormLayout.ItemRole.LabelRole, self.label_6)
-        self.lineEdit = QtWidgets.QLineEdit(parent=self.tab)
-        self.lineEdit.setObjectName("lineEdit")
-        self.formularioCompra.setWidget(0, QtWidgets.QFormLayout.ItemRole.FieldRole, self.lineEdit)
-        self.lineEdit_2 = QtWidgets.QLineEdit(parent=self.tab)
-        self.lineEdit_2.setObjectName("lineEdit_2")
-        self.formularioCompra.setWidget(2, QtWidgets.QFormLayout.ItemRole.FieldRole, self.lineEdit_2)
-        self.lineEdit_3 = QtWidgets.QLineEdit(parent=self.tab)
-        self.lineEdit_3.setObjectName("lineEdit_3")
-        self.formularioCompra.setWidget(1, QtWidgets.QFormLayout.ItemRole.FieldRole, self.lineEdit_3)
-        self.verticalLayout_3.addLayout(self.formularioCompra)
-        self.btnComprar = QtWidgets.QPushButton(parent=self.tab)
-        self.btnComprar.setMinimumSize(QtCore.QSize(100, 25))
-        self.btnComprar.setMaximumSize(QtCore.QSize(100, 25))
-        self.btnComprar.setStyleSheet("QPushButton{\n"
-"    color: black;\n"
-"    background-color: white;\n"
-"    border-radius: 4px;\n"
-"}\n"
-"\n"
-"QPushButton::hover {\n"
-"    background-color: #3081D0;\n"
-"    color: white;\n"
-"}")
-        self.btnComprar.setObjectName("btnComprar")
-        self.verticalLayout_3.addWidget(self.btnComprar)
-        self.tabWidget.addTab(self.tab, "")
-        self.tab_2 = QtWidgets.QWidget()
-        self.tab_2.setObjectName("tab_2")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.tab_2)
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.label_2 = QtWidgets.QLabel(parent=self.tab_2)
-        self.label_2.setMaximumSize(QtCore.QSize(16777215, 60))
-        self.label_2.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.label_2.setObjectName("label_2")
-        self.verticalLayout_2.addWidget(self.label_2)
-        self.formularioVenta = QtWidgets.QFormLayout()
-        self.formularioVenta.setObjectName("formularioVenta")
-        self.label_7 = QtWidgets.QLabel(parent=self.tab_2)
-        self.label_7.setObjectName("label_7")
-        self.formularioVenta.setWidget(0, QtWidgets.QFormLayout.ItemRole.LabelRole, self.label_7)
-        self.lineEdit_5 = QtWidgets.QLineEdit(parent=self.tab_2)
-        self.lineEdit_5.setObjectName("lineEdit_5")
-        self.formularioVenta.setWidget(0, QtWidgets.QFormLayout.ItemRole.FieldRole, self.lineEdit_5)
-        self.label_8 = QtWidgets.QLabel(parent=self.tab_2)
-        self.label_8.setObjectName("label_8")
-        self.formularioVenta.setWidget(1, QtWidgets.QFormLayout.ItemRole.LabelRole, self.label_8)
-        self.lineEdit_4 = QtWidgets.QLineEdit(parent=self.tab_2)
-        self.lineEdit_4.setObjectName("lineEdit_4")
-        self.formularioVenta.setWidget(1, QtWidgets.QFormLayout.ItemRole.FieldRole, self.lineEdit_4)
-        self.label_9 = QtWidgets.QLabel(parent=self.tab_2)
+        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.verticalLayout.addItem(spacerItem)
+        self.horizontalWidget = QtWidgets.QWidget(parent=self.centralwidget)
+        self.horizontalWidget.setObjectName("horizontalWidget")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalWidget)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.label_9 = QtWidgets.QLabel(parent=self.horizontalWidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_9.setFont(font)
         self.label_9.setObjectName("label_9")
-        self.formularioVenta.setWidget(2, QtWidgets.QFormLayout.ItemRole.LabelRole, self.label_9)
-        self.lineEdit_6 = QtWidgets.QLineEdit(parent=self.tab_2)
-        self.lineEdit_6.setObjectName("lineEdit_6")
-        self.formularioVenta.setWidget(2, QtWidgets.QFormLayout.ItemRole.FieldRole, self.lineEdit_6)
-        self.verticalLayout_2.addLayout(self.formularioVenta)
-        self.btnVender = QtWidgets.QPushButton(parent=self.tab_2)
-        self.btnVender.setMinimumSize(QtCore.QSize(100, 25))
-        self.btnVender.setMaximumSize(QtCore.QSize(100, 25))
-        self.btnVender.setStyleSheet("QPushButton{\n"
+        self.horizontalLayout.addWidget(self.label_9, 0, QtCore.Qt.AlignmentFlag.AlignHCenter)
+        self.comboBox = QtWidgets.QComboBox(parent=self.horizontalWidget)
+        self.comboBox.setMinimumSize(QtCore.QSize(120, 0))
+        self.comboBox.setMaximumSize(QtCore.QSize(120, 16777215))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.comboBox.setFont(font)
+        self.comboBox.setStyleSheet("QComboBox{\n"
+"    color: black;\n"
+"    background-color: white;\n"
+"    border-radius: 4px;\n"
+"}")
+        self.comboBox.setObjectName("comboBox")
+        self.horizontalLayout.addWidget(self.comboBox)
+        self.verticalLayout.addWidget(self.horizontalWidget, 0, QtCore.Qt.AlignmentFlag.AlignHCenter)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
+        self.verticalLayout.addItem(spacerItem1)
+        self.formWidget = QtWidgets.QWidget(parent=self.centralwidget)
+        self.formWidget.setObjectName("formWidget")
+        self.formLayout_2 = QtWidgets.QFormLayout(self.formWidget)
+        self.formLayout_2.setLabelAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.formLayout_2.setObjectName("formLayout_2")
+        self.label_2 = QtWidgets.QLabel(parent=self.formWidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_2.setFont(font)
+        self.label_2.setObjectName("label_2")
+        self.formLayout_2.setWidget(0, QtWidgets.QFormLayout.ItemRole.LabelRole, self.label_2)
+        self.label_3 = QtWidgets.QLabel(parent=self.formWidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_3.setFont(font)
+        self.label_3.setObjectName("label_3")
+        self.formLayout_2.setWidget(1, QtWidgets.QFormLayout.ItemRole.LabelRole, self.label_3)
+        self.label_4 = QtWidgets.QLabel(parent=self.formWidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_4.setFont(font)
+        self.label_4.setObjectName("label_4")
+        self.formLayout_2.setWidget(2, QtWidgets.QFormLayout.ItemRole.LabelRole, self.label_4)
+        self.label_5 = QtWidgets.QLabel(parent=self.formWidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_5.setFont(font)
+        self.label_5.setObjectName("label_5")
+        self.formLayout_2.setWidget(4, QtWidgets.QFormLayout.ItemRole.LabelRole, self.label_5)
+        self.label_6 = QtWidgets.QLabel(parent=self.formWidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_6.setFont(font)
+        self.label_6.setObjectName("label_6")
+        self.formLayout_2.setWidget(3, QtWidgets.QFormLayout.ItemRole.LabelRole, self.label_6)
+        self.label_7 = QtWidgets.QLabel(parent=self.formWidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_7.setFont(font)
+        self.label_7.setObjectName("label_7")
+        self.formLayout_2.setWidget(5, QtWidgets.QFormLayout.ItemRole.LabelRole, self.label_7)
+        self.label_8 = QtWidgets.QLabel(parent=self.formWidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_8.setFont(font)
+        self.label_8.setObjectName("label_8")
+        self.formLayout_2.setWidget(6, QtWidgets.QFormLayout.ItemRole.LabelRole, self.label_8)
+        self.dateInicioContrato = QtWidgets.QDateEdit(parent=self.formWidget)
+        self.dateInicioContrato.setMinimumSize(QtCore.QSize(300, 0))
+        self.dateInicioContrato.setMaximumSize(QtCore.QSize(300, 16777215))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.dateInicioContrato.setFont(font)
+        self.dateInicioContrato.setStyleSheet("QDateEdit{\n"
+"    color: black;\n"
+"    background-color: white;\n"
+"    border-radius: 4px;\n"
+"}")
+        self.dateInicioContrato.setObjectName("dateInicioContrato")
+        self.formLayout_2.setWidget(0, QtWidgets.QFormLayout.ItemRole.FieldRole, self.dateInicioContrato)
+        self.dateFinContrato = QtWidgets.QDateEdit(parent=self.formWidget)
+        self.dateFinContrato.setMinimumSize(QtCore.QSize(300, 0))
+        self.dateFinContrato.setMaximumSize(QtCore.QSize(300, 16777215))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.dateFinContrato.setFont(font)
+        self.dateFinContrato.setStyleSheet("QDateEdit{\n"
+"    color: black;\n"
+"    background-color: white;\n"
+"    border-radius: 4px;\n"
+"}")
+        self.dateFinContrato.setObjectName("dateFinContrato")
+        self.formLayout_2.setWidget(1, QtWidgets.QFormLayout.ItemRole.FieldRole, self.dateFinContrato)
+        self.txtValor = QtWidgets.QLineEdit(parent=self.formWidget)
+        self.txtValor.setMinimumSize(QtCore.QSize(300, 0))
+        self.txtValor.setMaximumSize(QtCore.QSize(300, 16777215))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.txtValor.setFont(font)
+        self.txtValor.setStyleSheet("QLineEdit{\n"
+"    color: black;\n"
+"    background-color: white;\n"
+"    border-radius: 4px;\n"
+"}")
+        self.txtValor.setObjectName("txtValor")
+        self.formLayout_2.setWidget(2, QtWidgets.QFormLayout.ItemRole.FieldRole, self.txtValor)
+        self.txtComision = QtWidgets.QLineEdit(parent=self.formWidget)
+        self.txtComision.setMinimumSize(QtCore.QSize(300, 0))
+        self.txtComision.setMaximumSize(QtCore.QSize(300, 16777215))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.txtComision.setFont(font)
+        self.txtComision.setStyleSheet("QLineEdit{\n"
+"    color: black;\n"
+"    background-color: white;\n"
+"    border-radius: 4px;\n"
+"}")
+        self.txtComision.setObjectName("txtComision")
+        self.formLayout_2.setWidget(3, QtWidgets.QFormLayout.ItemRole.FieldRole, self.txtComision)
+        self.btnEscogerCliente = QtWidgets.QPushButton(parent=self.formWidget)
+        self.btnEscogerCliente.setMinimumSize(QtCore.QSize(300, 0))
+        self.btnEscogerCliente.setMaximumSize(QtCore.QSize(300, 16777215))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.btnEscogerCliente.setFont(font)
+        self.btnEscogerCliente.setStyleSheet("QPushButton{\n"
 "    color: black;\n"
 "    background-color: white;\n"
 "    border-radius: 4px;\n"
@@ -114,13 +171,70 @@ class Ui_MainWindow(object):
 "    background-color: #3081D0;\n"
 "    color: white;\n"
 "}")
-        self.btnVender.setObjectName("btnVender")
-        self.verticalLayout_2.addWidget(self.btnVender)
-        self.tabWidget.addTab(self.tab_2, "")
-        self.verticalLayout.addWidget(self.tabWidget)
+        self.btnEscogerCliente.setObjectName("btnEscogerCliente")
+        self.formLayout_2.setWidget(4, QtWidgets.QFormLayout.ItemRole.FieldRole, self.btnEscogerCliente)
+        self.btnEscogerInmueble = QtWidgets.QPushButton(parent=self.formWidget)
+        self.btnEscogerInmueble.setMinimumSize(QtCore.QSize(300, 0))
+        self.btnEscogerInmueble.setMaximumSize(QtCore.QSize(300, 16777215))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.btnEscogerInmueble.setFont(font)
+        self.btnEscogerInmueble.setStyleSheet("QPushButton{\n"
+"    color: black;\n"
+"    background-color: white;\n"
+"    border-radius: 4px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"    background-color: #3081D0;\n"
+"    color: white;\n"
+"}")
+        self.btnEscogerInmueble.setObjectName("btnEscogerInmueble")
+        self.formLayout_2.setWidget(5, QtWidgets.QFormLayout.ItemRole.FieldRole, self.btnEscogerInmueble)
+        self.btnEscogerAgente = QtWidgets.QPushButton(parent=self.formWidget)
+        self.btnEscogerAgente.setMinimumSize(QtCore.QSize(300, 0))
+        self.btnEscogerAgente.setMaximumSize(QtCore.QSize(300, 16777215))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.btnEscogerAgente.setFont(font)
+        self.btnEscogerAgente.setStyleSheet("QPushButton{\n"
+"    color: black;\n"
+"    background-color: white;\n"
+"    border-radius: 4px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"    background-color: #3081D0;\n"
+"    color: white;\n"
+"}")
+        self.btnEscogerAgente.setObjectName("btnEscogerAgente")
+        self.formLayout_2.setWidget(6, QtWidgets.QFormLayout.ItemRole.FieldRole, self.btnEscogerAgente)
+        self.verticalLayout.addWidget(self.formWidget, 0, QtCore.Qt.AlignmentFlag.AlignHCenter|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        spacerItem2 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
+        self.verticalLayout.addItem(spacerItem2)
+        self.btnConfirmar = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.btnConfirmar.setMinimumSize(QtCore.QSize(100, 25))
+        self.btnConfirmar.setMaximumSize(QtCore.QSize(100, 25))
+        self.btnConfirmar.setStyleSheet("QPushButton{\n"
+"    color: black;\n"
+"    background-color: white;\n"
+"    border-radius: 4px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"    background-color: #3081D0;\n"
+"    color: white;\n"
+"}")
+        self.btnConfirmar.setObjectName("btnConfirmar")
+        self.verticalLayout.addWidget(self.btnConfirmar, 0, QtCore.Qt.AlignmentFlag.AlignHCenter)
+        spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.verticalLayout.addItem(spacerItem3)
         self.btnSalir = QtWidgets.QPushButton(parent=self.centralwidget)
         self.btnSalir.setMinimumSize(QtCore.QSize(100, 25))
         self.btnSalir.setMaximumSize(QtCore.QSize(100, 25))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.btnSalir.setFont(font)
         self.btnSalir.setStyleSheet("QPushButton{\n"
 "    color: black;\n"
 "    background-color: white;\n"
@@ -132,27 +246,26 @@ class Ui_MainWindow(object):
 "    color: white;\n"
 "}")
         self.btnSalir.setObjectName("btnSalir")
-        self.verticalLayout.addWidget(self.btnSalir)
+        self.verticalLayout.addWidget(self.btnSalir, 0, QtCore.Qt.AlignmentFlag.AlignRight)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "Contratos"))
-        self.label_3.setText(_translate("MainWindow", "Contrato de compra"))
-        self.label_4.setText(_translate("MainWindow", "TextLabel"))
-        self.label_5.setText(_translate("MainWindow", "TextLabel"))
-        self.label_6.setText(_translate("MainWindow", "TextLabel"))
-        self.btnComprar.setText(_translate("MainWindow", "Confirmar"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Compra"))
-        self.label_2.setText(_translate("MainWindow", "Contrato de venta"))
-        self.label_7.setText(_translate("MainWindow", "TextLabel"))
-        self.label_8.setText(_translate("MainWindow", "TextLabel"))
-        self.label_9.setText(_translate("MainWindow", "TextLabel"))
-        self.btnVender.setText(_translate("MainWindow", "Confirmar"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Venta"))
+        self.label_9.setText(_translate("MainWindow", "Tipo de contrato"))
+        self.label_2.setText(_translate("MainWindow", "Fecha de Inicio"))
+        self.label_3.setText(_translate("MainWindow", "Fecha de Fin"))
+        self.label_4.setText(_translate("MainWindow", "Valor"))
+        self.label_5.setText(_translate("MainWindow", "Cliente"))
+        self.label_6.setText(_translate("MainWindow", "Comisión"))
+        self.label_7.setText(_translate("MainWindow", "Inmueble"))
+        self.label_8.setText(_translate("MainWindow", "Agente"))
+        self.btnEscogerCliente.setText(_translate("MainWindow", "Seleccionar cliente"))
+        self.btnEscogerInmueble.setText(_translate("MainWindow", "Seleccionar inmueble"))
+        self.btnEscogerAgente.setText(_translate("MainWindow", "Seleccionar agente"))
+        self.btnConfirmar.setText(_translate("MainWindow", "Confirmar"))
         self.btnSalir.setText(_translate("MainWindow", "Salir"))

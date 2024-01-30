@@ -34,6 +34,9 @@ class Ui_MainWindow(object):
         self.btnEmpleados = QtWidgets.QPushButton(parent=self.centralwidget)
         self.btnEmpleados.setMinimumSize(QtCore.QSize(80, 230))
         self.btnEmpleados.setMaximumSize(QtCore.QSize(180, 230))
+        font = QtGui.QFont()
+        font.setPointSize(18)
+        self.btnEmpleados.setFont(font)
         self.btnEmpleados.setStyleSheet("QPushButton{\n"
 "    color: black;\n"
 "    background-color: white;\n"
@@ -48,6 +51,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.btnEmpleados)
         self.btnContratos = QtWidgets.QPushButton(parent=self.centralwidget)
         self.btnContratos.setMaximumSize(QtCore.QSize(180, 230))
+        font = QtGui.QFont()
+        font.setPointSize(18)
+        self.btnContratos.setFont(font)
         self.btnContratos.setStyleSheet("QPushButton{\n"
 "    color: black;\n"
 "    background-color: white;\n"
@@ -62,6 +68,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.btnContratos)
         self.btnReportes = QtWidgets.QPushButton(parent=self.centralwidget)
         self.btnReportes.setMaximumSize(QtCore.QSize(180, 230))
+        font = QtGui.QFont()
+        font.setPointSize(18)
+        self.btnReportes.setFont(font)
         self.btnReportes.setStyleSheet("QPushButton{\n"
 "    color: black;\n"
 "    background-color: white;\n"
@@ -77,7 +86,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addLayout(self.horizontalLayout)
         self.horizontalWidget_2 = QtWidgets.QWidget(parent=self.centralwidget)
         self.horizontalWidget_2.setMaximumSize(QtCore.QSize(16777215, 60))
-        self.horizontalWidget_2.setStyleSheet("background-color: black;\n"
+        self.horizontalWidget_2.setStyleSheet("background-color: #3f3f3f;\n"
 "color: #f1f1f1;")
         self.horizontalWidget_2.setObjectName("horizontalWidget_2")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.horizontalWidget_2)
