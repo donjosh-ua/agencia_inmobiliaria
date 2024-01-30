@@ -38,7 +38,15 @@ SELECT Inmueble.ID, Inmueble.Nombre, Tipo_Inmueble.Nombre, Clasificacion.Nombre,
  JOIN Ciudad on Sector.ID_Ciudad = Ciudad.ID
  JOIN Cliente on Inmueble.Dueño = Cliente.Cedula
  WHERE Tipo_Contrato.Detalle = 'Venta' 
-	AND Inmueble.ID IN (SELECT Inmueble.ID
+	AND Inmueble.ID NOT IN (SELECT Inmueble.ID
 						 FROM Contrato JOIN Inmueble on Contrato.Inmueble = Inmueble.id
 						 JOIN Tipo_Contrato on Contrato.Tipo = Tipo_Contrato.ID
 						 WHERE Tipo_Contrato.Detalle = 'Compra')
+
+//Reporte de ventas realizadas en un rango de fechas
+SELECT Inmueble.Nombre as Inmueble, Empleado.Nombre as Agente, Cliente.Nombre as Cliente
+ FROM Contrato JOIN Inmueble on Contrato.Inmueble = Inmueble.id
+ JOIN Tipo_Contrato on Contrato.Tipo = Tipo_Contrato.ID
+ JOIN Empleado JOIN Contrato.Agente = Empleado.Cedula
+ JOIN Cliente on Contrato.Cliente = Cliente.Cedula
+ WHERE Tipo_Contrato.Detalle = 'Compra' and [Fecha_Inicio de vista] < Contrato.Fecha_Inicio and [Fecha_Fin de vista] > Contrato.Fecha_Inicio
