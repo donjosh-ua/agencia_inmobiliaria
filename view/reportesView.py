@@ -27,12 +27,21 @@ class Ui_MainWindow(object):
         self.label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label.setObjectName("label")
         self.verticalLayout.addWidget(self.label)
-        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.widget = QtWidgets.QWidget(parent=self.centralwidget)
+        self.widget.setObjectName("widget")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.widget)
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.label_2 = QtWidgets.QLabel(parent=self.centralwidget)
+        self.label_2 = QtWidgets.QLabel(parent=self.widget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.horizontalLayout.addWidget(self.label_2)
-        self.cbxTipoReporte = QtWidgets.QComboBox(parent=self.centralwidget)
+        self.cbxTipoReporte = QtWidgets.QComboBox(parent=self.widget)
+        self.cbxTipoReporte.setMaximumSize(QtCore.QSize(200, 16777215))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.cbxTipoReporte.setFont(font)
         self.cbxTipoReporte.setStyleSheet("QComboBox{\n"
 "    color: black;\n"
 "    background-color: white;\n"
@@ -46,50 +55,88 @@ class Ui_MainWindow(object):
         self.cbxTipoReporte.addItem("")
         self.cbxTipoReporte.addItem("")
         self.horizontalLayout.addWidget(self.cbxTipoReporte)
-        self.verticalLayout.addLayout(self.horizontalLayout)
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+        self.verticalLayout.addWidget(self.widget, 0, QtCore.Qt.AlignmentFlag.AlignHCenter)
+        self.widget1 = QtWidgets.QWidget(parent=self.centralwidget)
+        self.widget1.setObjectName("widget1")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.widget1)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.lbl_inmueble_elegido = QtWidgets.QLabel(parent=self.centralwidget)
-        self.lbl_inmueble_elegido.setObjectName("lbl_inmueble_elegido")
-        self.horizontalLayout_2.addWidget(self.lbl_inmueble_elegido)
-        self.cbx_inmueble_elegido = QtWidgets.QComboBox(parent=self.centralwidget)
-        self.cbx_inmueble_elegido.setStyleSheet("QComboBox{\n"
+        self.lblInmuebleElegido = QtWidgets.QLabel(parent=self.widget1)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.lblInmuebleElegido.setFont(font)
+        self.lblInmuebleElegido.setObjectName("lblInmuebleElegido")
+        self.horizontalLayout_2.addWidget(self.lblInmuebleElegido)
+        self.cbxInmuebleElegido = QtWidgets.QComboBox(parent=self.widget1)
+        self.cbxInmuebleElegido.setMinimumSize(QtCore.QSize(150, 0))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.cbxInmuebleElegido.setFont(font)
+        self.cbxInmuebleElegido.setStyleSheet("QComboBox{\n"
 "    color: black;\n"
 "    background-color: white;\n"
 "    border-radius: 4px;\n"
-"}\n"
-"")
-        self.cbx_inmueble_elegido.setObjectName("cbx_inmueble_elegido")
-        self.horizontalLayout_2.addWidget(self.cbx_inmueble_elegido)
-        self.verticalLayout.addLayout(self.horizontalLayout_2)
+"}")
+        self.cbxInmuebleElegido.setObjectName("cbxInmuebleElegido")
+        self.horizontalLayout_2.addWidget(self.cbxInmuebleElegido)
+        self.verticalLayout.addWidget(self.widget1, 0, QtCore.Qt.AlignmentFlag.AlignHCenter)
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_3.addItem(spacerItem)
         self.lbl_fecha_inicio = QtWidgets.QLabel(parent=self.centralwidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.lbl_fecha_inicio.setFont(font)
         self.lbl_fecha_inicio.setObjectName("lbl_fecha_inicio")
         self.horizontalLayout_3.addWidget(self.lbl_fecha_inicio)
-        self.date_inicio = QtWidgets.QDateEdit(parent=self.centralwidget)
-        self.date_inicio.setStyleSheet("QDateEdit{\n"
+        self.dateInicio = QtWidgets.QDateEdit(parent=self.centralwidget)
+        self.dateInicio.setMinimumSize(QtCore.QSize(100, 0))
+        self.dateInicio.setMaximumSize(QtCore.QSize(100, 16777215))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.dateInicio.setFont(font)
+        self.dateInicio.setStyleSheet("QDateEdit{\n"
 "    color: black;\n"
 "    background-color: white;\n"
 "    border-radius: 4px;\n"
 "}\n"
 "")
-        self.date_inicio.setObjectName("date_inicio")
-        self.horizontalLayout_3.addWidget(self.date_inicio)
+        self.dateInicio.setObjectName("dateInicio")
+        self.horizontalLayout_3.addWidget(self.dateInicio)
+        spacerItem1 = QtWidgets.QSpacerItem(40, 0, QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_3.addItem(spacerItem1)
         self.lbl_fecha_fin = QtWidgets.QLabel(parent=self.centralwidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.lbl_fecha_fin.setFont(font)
         self.lbl_fecha_fin.setObjectName("lbl_fecha_fin")
         self.horizontalLayout_3.addWidget(self.lbl_fecha_fin)
-        self.date_fin = QtWidgets.QDateEdit(parent=self.centralwidget)
-        self.date_fin.setStyleSheet("QDateEdit{\n"
+        self.dateFin = QtWidgets.QDateEdit(parent=self.centralwidget)
+        self.dateFin.setMinimumSize(QtCore.QSize(100, 0))
+        self.dateFin.setMaximumSize(QtCore.QSize(100, 16777215))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.dateFin.setFont(font)
+        self.dateFin.setStyleSheet("QDateEdit{\n"
 "    color: black;\n"
 "    background-color: white;\n"
 "    border-radius: 4px;\n"
 "}\n"
 "")
-        self.date_fin.setObjectName("date_fin")
-        self.horizontalLayout_3.addWidget(self.date_fin)
+        self.dateFin.setObjectName("dateFin")
+        self.horizontalLayout_3.addWidget(self.dateFin)
+        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_3.addItem(spacerItem2)
         self.verticalLayout.addLayout(self.horizontalLayout_3)
         self.tblReportes = QtWidgets.QTableWidget(parent=self.centralwidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.tblReportes.setFont(font)
+        self.tblReportes.setStyleSheet("QTableWidget{\n"
+"    color: black;\n"
+"    background-color: white;\n"
+"    border-radius: 4px;\n"
+"}")
         self.tblReportes.setObjectName("tblReportes")
         self.tblReportes.setColumnCount(0)
         self.tblReportes.setRowCount(0)
@@ -108,7 +155,7 @@ class Ui_MainWindow(object):
 "    color: white;\n"
 "}")
         self.btnSalir.setObjectName("btnSalir")
-        self.verticalLayout.addWidget(self.btnSalir)
+        self.verticalLayout.addWidget(self.btnSalir, 0, QtCore.Qt.AlignmentFlag.AlignHCenter)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -124,7 +171,7 @@ class Ui_MainWindow(object):
         self.cbxTipoReporte.setItemText(2, _translate("MainWindow", "Inmuebles vendidos por sector"))
         self.cbxTipoReporte.setItemText(3, _translate("MainWindow", "Inmuebles disponibles para la venta"))
         self.cbxTipoReporte.setItemText(4, _translate("MainWindow", "Ventas en un rango de fechas"))
-        self.lbl_inmueble_elegido.setText(_translate("MainWindow", "Inmueble"))
+        self.lblInmuebleElegido.setText(_translate("MainWindow", "Inmueble"))
         self.lbl_fecha_inicio.setText(_translate("MainWindow", "Fecha inicial"))
         self.lbl_fecha_fin.setText(_translate("MainWindow", "Fecha final"))
         self.btnSalir.setText(_translate("MainWindow", "Salir"))
