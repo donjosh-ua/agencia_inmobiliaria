@@ -146,6 +146,23 @@ class Ui_MainWindow(object):
 "}")
         self.cbxTipo.setObjectName("cbxTipo")
         self.formulario.setWidget(4, QtWidgets.QFormLayout.ItemRole.FieldRole, self.cbxTipo)
+        self.label_7 = QtWidgets.QLabel(parent=self.form)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_7.setFont(font)
+        self.label_7.setObjectName("label_7")
+        self.formulario.setWidget(5, QtWidgets.QFormLayout.ItemRole.LabelRole, self.label_7)
+        self.txtAnio = QtWidgets.QLineEdit(parent=self.form)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.txtAnio.setFont(font)
+        self.txtAnio.setStyleSheet("QLineEdit{\n"
+"    color: black;\n"
+"    background-color: white;\n"
+"    border-radius: 4px;\n"
+"}")
+        self.txtAnio.setObjectName("txtAnio")
+        self.formulario.setWidget(5, QtWidgets.QFormLayout.ItemRole.FieldRole, self.txtAnio)
         self.verticalLayout.addWidget(self.form, 0, QtCore.Qt.AlignmentFlag.AlignHCenter|QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.widget = QtWidgets.QWidget(parent=self.centralwidget)
         self.widget.setMaximumSize(QtCore.QSize(16777215, 40))
@@ -211,5 +228,6 @@ class Ui_MainWindow(object):
         self.label_8.setText(_translate("MainWindow", "Tipo"))
         self.label_5.setText(_translate("MainWindow", "Características"))
         self.btnCaracteristicas.setText(_translate("MainWindow", "Elegir características"))
+        self.label_7.setText(_translate("MainWindow", "Año"))
         self.btnAceptar.setText(_translate("MainWindow", "Aceptar"))
         self.btnCancelar.setText(_translate("MainWindow", "Cancelar"))

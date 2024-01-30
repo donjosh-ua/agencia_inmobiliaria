@@ -30,7 +30,7 @@ class Contratos(QtWidgets.QMainWindow):
         db = DBManager()
         inmuebles = db.select('Inmueble', '*', 'true')
         for inmueble in inmuebles:
-            self.ui.cbxInmuebles.addItem(inmueble[0])
+            self.ui.cbxInmuebles.addItem(inmueble[1])
         db.close()
 
     def cargar_combo_cliente(self):
@@ -49,7 +49,7 @@ class Contratos(QtWidgets.QMainWindow):
 
     def ingresar_inmueble(self) -> None:
         from client.logic import Inmuebles
-        self.vl = Inmuebles.Inmuebles()
+        self.vl = Inmuebles.Inmuebles(cbx=self.ui.cbxInmuebles)
         self.vl.show()
 
     def ingresar_cliente(self) -> None:
