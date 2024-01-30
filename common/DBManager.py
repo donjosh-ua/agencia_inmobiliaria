@@ -41,5 +41,9 @@ class DBManager:
         self.c.execute(f"DELETE FROM {table_name} WHERE {condition}")
         self.conn.commit()
 
+    def execute(self, query):
+        self.c.execute(query)
+        self.conn.commit()
+
     def close(self):
         self.conn.close()
