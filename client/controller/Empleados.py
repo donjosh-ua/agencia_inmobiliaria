@@ -11,8 +11,5 @@ class Empleados(QtWidgets.QMainWindow):
         self.ui.btnSalir.clicked.connect(self.salir)
         self.vl = None
 
-    def start(self) -> None:
-        pass
-
     def salir(self) -> None:
         self.close()

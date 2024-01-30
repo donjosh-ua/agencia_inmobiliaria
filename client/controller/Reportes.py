@@ -11,8 +11,5 @@ class Reportes(QtWidgets.QMainWindow):
         self.vl = None
         self.ui.btnSalir.clicked.connect(self.salir)
 
-    def start(self) -> None:
-        pass
-
     def salir(self) -> None:
         self.close()
