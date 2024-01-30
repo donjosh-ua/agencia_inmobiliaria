@@ -1,5 +1,6 @@
 from PyQt6 import QtWidgets
 from PyQt6.QtWidgets import QTableWidgetItem
+import common.querys as querys
 
 from view import reportesView
 from common.DBManager import DBManager
@@ -25,14 +26,14 @@ class Reportes(QtWidgets.QMainWindow):
         # Llenar la tabla con datos de la lista de tuplas
         fecha_inicio = self.ui.dateInicio.date().toPyDate().strftime('%Y-%m-%d')
         fecha_fin = self.ui.dateFin.date().toPyDate().strftime('%Y-%m-%d')
+
         db = DBManager()
-        data = db.execute(f"SELECT Inmueble.Nombre as Inmueble, Empleado.Nombre as Agente, Cliente.Nombre as Cliente"
-                          f" FROM Contrato JOIN Inmueble on Contrato.Inmueble = Inmueble.id"
-                          f" JOIN Tipo_Contrato on Contrato.Tipo = Tipo_Contrato.ID"
-                          f" JOIN Empleado on Contrato.Agente = Empleado.Cedula"
-                          f" JOIN Cliente on Contrato.Comprador = Cliente.Cedula"
-                          f" WHERE Tipo_Contrato.Nombre = 'Compra' and '{fecha_inicio}' < Contrato.Fecha_Venta and '{fecha_fin}' > Contrato.Fecha_Venta")
-        if data == None: return
+        data = db.execute(querys.vendidos_por_temporada(fecha_inicio, fecha_fin))
+        db.close()
+
+        if data is None:
+            return
+
         for row_index, row_data in enumerate(data):
             self.ui.tblReportes.insertRow(row_index)
             for col_index, col_data in enumerate(row_data):
@@ -43,25 +44,15 @@ class Reportes(QtWidgets.QMainWindow):
         # Configurar la tabla con tres columnas
         self.ui.tblReportes.setColumnCount(8)
         # Establecer las etiquetas de las columnas
-        self.ui.tblReportes.setHorizontalHeaderLabels(["Id", "Inmueble", "Tipo","Clasificacion","Estado","Sector","Ciudad","Cliente"])
+        self.ui.tblReportes.setHorizontalHeaderLabels(["Id", "Inmueble", "Tipo", "Clasificacion", "Estado", "Sector", "Ciudad", "Cliente"])
         # Llenar la tabla con datos de la lista de tuplas
         db = DBManager()
-        data = db.execute(f"SELECT Inmueble.ID, Inmueble.Nombre, ti.Nombre, Clasificacion.Nombre, ei.Nombre, Sector.Nombre,Ciudad.Nombre,Cliente.Nombre"
-                          f" FROM Contrato"
-                          f" JOIN Inmueble on Contrato.Inmueble = Inmueble.id"
-                          f" JOIN Tipo_Contrato on Contrato.Tipo = Tipo_Contrato.ID"
-                          f" JOIN Tipo_Inmueble as ti on Inmueble.Tipo = ti.ID"
-                          f" JOIN Clasificacion on ti.Clasificacion = Clasificacion.ID"
-                          f" JOIN Estado_Inmueble as ei on Inmueble.Estado = ei.ID"
-                          f" JOIN Sector on Inmueble.Sector = Sector.ID"
-                          f" JOIN Ciudad on Sector.ID_Ciudad = Ciudad.ID"
-                          f" JOIN Cliente on Inmueble.Dueño = Cliente.Cedula"
-                          f" WHERE ti.Nombre = 'Venta'"
-                          f" AND Inmueble.ID NOT IN (SELECT Inmueble.ID"
-                            f" FROM Contrato JOIN Inmueble on Contrato.Inmueble = Inmueble.id"
-                            f" JOIN Tipo_Contrato on Contrato.Tipo = Tipo_Contrato.ID"
-                            f" WHERE Tipo_Contrato.Nombre = 'Compra')")
-        if data == None: return
+        data = db.execute(querys.inmuebles_para_venta())
+        db.close()
+
+        if data is None:
+            return
+
         for row_index, row_data in enumerate(data):
             self.ui.tblReportes.insertRow(row_index)
             for col_index, col_data in enumerate(row_data):
@@ -75,14 +66,12 @@ class Reportes(QtWidgets.QMainWindow):
         self.ui.tblReportes.setHorizontalHeaderLabels(["Id", "Sector", "Inmuebles"])
         # Llenar la tabla con datos de la lista de tuplas
         db = DBManager()
-        data = db.execute(f"SELECT Sector.ID, Sector.Nombre, count(DISTINCT Inmueble.ID)"
-                          f" FROM Contrato"
-                          f" JOIN Inmueble on Contrato.Inmueble = Inmueble.ID"
-                          f" JOIN Tipo_Contrato on Contrato.Tipo = Tipo_Contrato.ID"
-                          f" JOIN sector on Inmueble.Sector = Sector.ID"
-                          f" WHERE Tipo_Contrato.Nombre = 'Compra'"
-                          f" GROUP BY Sector.ID")
-        if data == None: return
+        data = db.execute(querys.inmuebles_vendidos_x_sector())
+        db.close()
+
+        if data is None:
+            return
+
         for row_index, row_data in enumerate(data):
             self.ui.tblReportes.insertRow(row_index)
             for col_index, col_data in enumerate(row_data):
@@ -93,19 +82,15 @@ class Reportes(QtWidgets.QMainWindow):
         # Configurar la tabla con tres columnas
         self.ui.tblReportes.setColumnCount(7)
         # Establecer las etiquetas de las columnas
-        self.ui.tblReportes.setHorizontalHeaderLabels(["Id", "Inmueble", "Clasificacion","Estado","Sector","Ciudad","Cliente"])
+        self.ui.tblReportes.setHorizontalHeaderLabels(["Id", "Inmueble", "Clasificacion", "Estado", "Sector", "Ciudad", "Cliente"])
         # Llenar la tabla con datos de la lista de tuplas
         db = DBManager()
-        data = db.execute(f"SELECT Inmueble.ID, Inmueble.Nombre, Clasificacion.Nombre, ei.Nombre, Sector.Nombre,Ciudad.Nombre,Cliente.Nombre"
-                          f" FROM Inmueble"
-                          f" JOIN Tipo_Inmueble as ti on Inmueble.Tipo = ti.ID"
-                          f" JOIN Clasificacion on ti.Clasificacion = Clasificacion.ID"
-                          f" JOIN Estado_Inmueble as ei on Inmueble.Estado = ei.ID"
-                          f" JOIN Sector on Inmueble.Sector = Sector.ID"
-                          f" JOIN Ciudad on Sector.ID_Ciudad = Ciudad.ID"
-                          f" JOIN Cliente on Inmueble.Dueño = Cliente.Cedula"
-                          f" WHERE ti.Nombre = '{self.ui.cbxTipoInmueble.currentText()}'")
-        if data == None: return
+        data = db.execute(querys.inmuebles_tipo_especifico(self.ui.cbxTipoInmueble.currentText()))
+        db.close()
+
+        if data is None:
+            return
+
         for row_index, row_data in enumerate(data):
             self.ui.tblReportes.insertRow(row_index)
             for col_index, col_data in enumerate(row_data):
@@ -119,13 +104,12 @@ class Reportes(QtWidgets.QMainWindow):
         self.ui.tblReportes.setHorizontalHeaderLabels(["Id", "Nombre", "Ventas"])
         # Llenar la tabla con datos de la lista de tuplas
         db = DBManager()
-        data = db.execute(f"SELECT ag.Cedula, ag.Nombre, count(1)"
-                f" FROM Empleado as ag"
-                f" JOIN Contrato as con on ag.Cedula = con.Agente"
-                f" JOIN Tipo_Contrato on con.Tipo = Tipo_Contrato.ID"
-                f" WHERE Tipo_Contrato.Nombre = 'Compra'"
-                f" GROUP BY ag.Cedula, ag.Nombre")
-        if data == None: return
+        data = db.execute(querys.ventas_x_agente())
+        db.close()
+
+        if data is None:
+            return
+
         for row_index, row_data in enumerate(data):
             self.ui.tblReportes.insertRow(row_index)
             for col_index, col_data in enumerate(row_data):
@@ -133,11 +117,13 @@ class Reportes(QtWidgets.QMainWindow):
                 self.ui.tblReportes.setItem(row_index, col_index, item)
 
     def cargar_combo_tipo_inmueble(self):
+
         db = DBManager()
         tipos = db.select('Tipo_Inmueble', '*', 'true')
+        db.close()
+
         for tipo in tipos:
             self.ui.cbxTipoInmueble.addItem(tipo[2])
-        db.close()
 
     def esconder_elementos(self):
 

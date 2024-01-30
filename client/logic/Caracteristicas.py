@@ -64,14 +64,25 @@ class Caracteristicas(QtWidgets.QMainWindow):
         codigo, nombre = caracteristica[0][0], caracteristica[0][1]
         valor = self.ui.txtValor.text()
 
-        # Create a new row in the table
+        if not valor or not valor.isnumeric():
+            return
+
+        if valor < '0':
+            return
+
+        num_rows = self.ui.tblCaracteristicas.rowCount()
+        for row in range(num_rows):
+            if self.ui.tblCaracteristicas.item(row, 0).text() == str(codigo):
+                return  # Spec is already in the table, so return
+
         row_position = self.ui.tblCaracteristicas.rowCount()
         self.ui.tblCaracteristicas.insertRow(row_position)
 
-        # Add the details to the new row
         self.ui.tblCaracteristicas.setItem(row_position, 0, QtWidgets.QTableWidgetItem(str(codigo)))
         self.ui.tblCaracteristicas.setItem(row_position, 1, QtWidgets.QTableWidgetItem(nombre))
         self.ui.tblCaracteristicas.setItem(row_position, 2, QtWidgets.QTableWidgetItem(valor))
+
+        self.ui.txtValor.setText('')
 
     def quitar(self):
         self.ui.tblCaracteristicas.removeRow(self.ui.tblCaracteristicas.currentRow())
