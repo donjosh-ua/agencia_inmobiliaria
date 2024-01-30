@@ -12,6 +12,7 @@ class Empleados(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.ui.btnSalir.clicked.connect(self.salir)
         self.ui.btnAgregar.clicked.connect(self.agregar)
+        self.ui.btnModificar.clicked.connect(self.modificar)
         self.vl = None
 
     def salir(self) -> None:
@@ -23,8 +24,17 @@ class Empleados(QtWidgets.QMainWindow):
         correo = self.ui.txtCorreo.text()
         telefono = self.ui.txtTelefono.text()
         direccion = self.ui.txtDireccion.text()
-        sueldo = self.ui.txtSueldo.text()
         clave = self.ui.txtClave.text()
         db = DBManager()
-        db.insert('Empleado',f"'{cedula}','{nombre}','{telefono}','{correo}','{direccion}',{float(sueldo)},'{clave}'")
+        db.insert('Empleado',f"'{cedula}','{nombre}','{telefono}','{correo}','{direccion}','{clave}'")
+        db.close()
+
+    def modificar(self):
+        nombre = self.ui.txtModificarNombre.text()
+        correo = self.ui.txtModificarCorreo.text()
+        telefono = self.ui.txtModificarTelefono.text()
+        direccion = self.ui.txtModificarDireccion.text()
+        cedula = self.ui.cbxCedula.currentText()
+        db = DBManager()
+        db.update('Empleado',f"Nombre = '{nombre}',Telefono = '{telefono}',Correo = '{correo}',Direccion = '{direccion}'",f"Cedula = '{cedula}'")
         db.close()
