@@ -43,7 +43,7 @@ class DBManager:
 
     def execute(self, query):
         self.c.execute(query)
-        self.conn.commit()
+        return self.c.fetchall()
 
     def close(self):
         self.conn.close()
