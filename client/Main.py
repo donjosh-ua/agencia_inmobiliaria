@@ -1,4 +1,4 @@
-from client.controller import InicioSesion
+from client.logic import InicioSesion
 
 
 class Main:

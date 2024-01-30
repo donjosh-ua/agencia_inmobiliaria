@@ -1,7 +1,7 @@
 from PyQt6 import QtWidgets
 import sys
 from view import loginView
-import client.controller.VistaPrincipal as vistaPrincipal
+import client.logic.VistaPrincipal as vistaPrincipal
 
 
 class InicioSesion(QtWidgets.QMainWindow):

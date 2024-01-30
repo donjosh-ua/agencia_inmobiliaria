@@ -1,8 +1,8 @@
 from PyQt6 import QtWidgets
 from view import mainView
-import client.controller.Reportes as Reportes
-import client.controller.Contratos as Contratos
-import client.controller.Empleados as Empleados
+import client.logic.Reportes as Reportes
+import client.logic.Contratos as Contratos
+import client.logic.Empleados as Empleados
 
 
 class VistaPrincipal(QtWidgets.QMainWindow):
