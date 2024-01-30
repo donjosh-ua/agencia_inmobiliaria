@@ -2,6 +2,13 @@ from PyQt6 import QtWidgets
 from view import contratosView
 from common.DBManager import DBManager
 
+def get_new_contrato_id():
+
+    db = DBManager()
+    count = db.select('Contrato', 'COUNT(1)', 'true')[0][0]
+    db.close()
+
+    return count + 1
 
 class Contratos(QtWidgets.QMainWindow):
 
@@ -19,6 +26,21 @@ class Contratos(QtWidgets.QMainWindow):
         self.ui.btnIngresarCliente.clicked.connect(self.ingresar_cliente)
         self.vl = None
 
+    def agregar_contrato(self):
+        id = get_new_contrato_id()
+        inmueble = int(self.ui.cbxInmuebles.currentText().split("-")[0])
+        cliente = self.ui.cbxClientes.currentText()
+        agente = self.ui.cbxAgentes.currentText()
+        tipo = int(self.ui.comboBox.currentText())
+        fecha_inicio = self.ui.dateInicioContrato.date().toPyDate().strftime('%Y-%m-%d')
+        fecha_fin = None
+        if tipo == "Venta": fecha_fin = self.ui.dateFinContrato.date().toPyDate().strftime('%Y-%m-%d')
+        precio = float(self.ui.txtValor.text())
+
+        db = DBManager()
+        db.insert('Contrato', f"'{id}', {inmueble}, '{cliente}', '{agente}', {tipo},'{fecha_inicio}','{fecha_fin}',{precio}")
+        db.close()
+
     def cargar_combo_tipo(self):
         db = DBManager()
         tipos = db.select('Tipo_Contrato', '*', 'true')
@@ -30,7 +52,7 @@ class Contratos(QtWidgets.QMainWindow):
         db = DBManager()
         inmuebles = db.select('Inmueble', '*', 'true')
         for inmueble in inmuebles:
-            self.ui.cbxInmuebles.addItem(inmueble[1])
+            self.ui.cbxInmuebles.addItem(f"{inmueble[0]}-{inmueble[1]}")
         db.close()
 
     def cargar_combo_cliente(self):
