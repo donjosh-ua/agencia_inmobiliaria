@@ -1,4 +1,4 @@
-from PyQt6 import QtWidgets
+from PyQt6 import QtWidgets, QtCore
 from PyQt6.QtWidgets import QTableWidgetItem
 import common.querys as querys
 
@@ -12,13 +12,22 @@ class Reportes(QtWidgets.QMainWindow):
         super().__init__(parent)
         self.ui = reportesView.Ui_MainWindow()
         self.ui.setupUi(self)
+        self.set_dates()
         self.esconder_elementos()
         self.cargar_combo_tipo_inmueble()
         self.vl = None
         self.ui.btnSalir.clicked.connect(self.salir)
         self.ui.cbxTipoReporte.currentTextChanged.connect(self.esconder_elementos)
+        self.ui.cbxTipoInmueble.currentTextChanged.connect(self.inmuebles_d_tipo_especifico)
+
+    def set_dates(self):
+        self.ui.dateInicio.setDate(QtCore.QDate.currentDate())
+        self.ui.dateFin.setDate(QtCore.QDate.currentDate())
 
     def vendidos_x_temporada(self):
+
+        self.ui.tblReportes.setRowCount(0)
+
         # Configurar la tabla con tres columnas
         self.ui.tblReportes.setColumnCount(3)
         # Establecer las etiquetas de las columnas
@@ -41,6 +50,9 @@ class Reportes(QtWidgets.QMainWindow):
                 self.ui.tblReportes.setItem(row_index, col_index, item)
 
     def inmuebles_para_venta(self):
+
+        self.ui.tblReportes.setRowCount(0)
+
         # Configurar la tabla con tres columnas
         self.ui.tblReportes.setColumnCount(8)
         # Establecer las etiquetas de las columnas
@@ -60,6 +72,9 @@ class Reportes(QtWidgets.QMainWindow):
                 self.ui.tblReportes.setItem(row_index, col_index, item)
 
     def inmuebles_vendidos_x_sector(self):
+
+        self.ui.tblReportes.setRowCount(0)
+
         # Configurar la tabla con tres columnas
         self.ui.tblReportes.setColumnCount(3)
         # Establecer las etiquetas de las columnas
@@ -79,13 +94,18 @@ class Reportes(QtWidgets.QMainWindow):
                 self.ui.tblReportes.setItem(row_index, col_index, item)
 
     def inmuebles_d_tipo_especifico(self):
+
+        self.ui.tblReportes.setRowCount(0)
+
         # Configurar la tabla con tres columnas
         self.ui.tblReportes.setColumnCount(7)
         # Establecer las etiquetas de las columnas
         self.ui.tblReportes.setHorizontalHeaderLabels(["Id", "Inmueble", "Clasificacion", "Estado", "Sector", "Ciudad", "Cliente"])
         # Llenar la tabla con datos de la lista de tuplas
+
         db = DBManager()
         data = db.execute(querys.inmuebles_tipo_especifico(self.ui.cbxTipoInmueble.currentText()))
+        print(data)
         db.close()
 
         if data is None:
@@ -98,6 +118,9 @@ class Reportes(QtWidgets.QMainWindow):
                 self.ui.tblReportes.setItem(row_index, col_index, item)
 
     def ventas_x_agente(self):
+
+        self.ui.tblReportes.setRowCount(0)
+
         # Configurar la tabla con tres columnas
         self.ui.tblReportes.setColumnCount(3)
         # Establecer las etiquetas de las columnas

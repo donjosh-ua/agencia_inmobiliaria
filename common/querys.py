@@ -5,22 +5,22 @@ def vendidos_por_temporada(fecha_inicio, fecha_fin):
            f" JOIN Empleado on Contrato.Agente = Empleado.Cedula"\
            f" JOIN Cliente on Contrato.Cliente = Cliente.Cedula"\
            f" WHERE Tipo_Contrato.Nombre = 'Compra' "\
-           f" and '{fecha_inicio}' < Contrato.Fecha_Inicio "\
-           f" and '{fecha_fin}' > Contrato.Fecha_Fin"
+           f" and '{fecha_inicio}' <= Contrato.Fecha_Inicio "\
+           f" and '{fecha_fin}' >= Contrato.Fecha_Inicio"
 
 
 def inmuebles_para_venta():
     return f"SELECT Inmueble.ID, Inmueble.Nombre, ti.Nombre, Clasificacion.Nombre, ei.Nombre, Sector.Nombre,Ciudad.Nombre,Cliente.Nombre"\
            f" FROM Contrato"\
            f" JOIN Inmueble on Contrato.Inmueble = Inmueble.id"\
-           f" JOIN Tipo_Contrato on Contrato.Tipo = Tipo_Contrato.ID"\
+           f" JOIN Tipo_Contrato as tc on Contrato.Tipo = tc.ID"\
            f" JOIN Tipo_Inmueble as ti on Inmueble.Tipo = ti.ID"\
            f" JOIN Clasificacion on ti.Clasificacion = Clasificacion.ID"\
            f" JOIN Estado_Inmueble as ei on Inmueble.Estado = ei.ID"\
            f" JOIN Sector on Inmueble.Sector = Sector.ID"\
            f" JOIN Ciudad on Sector.ID_Ciudad = Ciudad.ID"\
            f" JOIN Cliente on Inmueble.Dueño = Cliente.Cedula"\
-           f" WHERE ti.Nombre = 'Venta'"\
+           f" WHERE tc.Nombre = 'Venta'"\
            f" AND Inmueble.ID NOT IN (SELECT Inmueble.ID"\
            f" FROM Contrato JOIN Inmueble on Contrato.Inmueble = Inmueble.id"\
            f" JOIN Tipo_Contrato on Contrato.Tipo = Tipo_Contrato.ID"\
@@ -38,14 +38,14 @@ def inmuebles_vendidos_x_sector():
 
 
 def inmuebles_tipo_especifico(tipo):
-    return f"SELECT Inmueble.ID, Inmueble.Nombre, Clasificacion.Nombre, ei.Nombre, Sector.Nombre, Ciudad.Nombre, Cliente.Nombre"\
-           f" FROM Inmueble"\
-           f" JOIN Tipo_Inmueble as ti on Inmueble.Tipo = ti.ID"\
+    return f"SELECT i.ID, i.Nombre, Clasificacion.Nombre, ei.Nombre, Sector.Nombre, Ciudad.Nombre, Cliente.Nombre"\
+           f" FROM Inmueble as i"\
+           f" JOIN Tipo_Inmueble as ti on i.Tipo = ti.ID"\
            f" JOIN Clasificacion on ti.Clasificacion = Clasificacion.ID"\
-           f" JOIN Estado_Inmueble as ei on Inmueble.Estado = ei.ID"\
-           f" JOIN Sector on Inmueble.Sector = Sector.ID"\
+           f" JOIN Estado_Inmueble as ei on i.Estado = ei.ID"\
+           f" JOIN Sector on i.Sector = Sector.ID"\
            f" JOIN Ciudad on Sector.ID_Ciudad = Ciudad.ID"\
-           f" JOIN Cliente on Inmueble.Dueño = Cliente.Cedula"\
+           f" JOIN Cliente on i.Dueño = Cliente.Cedula"\
            f" WHERE ti.Nombre = '{tipo}'"
 
 

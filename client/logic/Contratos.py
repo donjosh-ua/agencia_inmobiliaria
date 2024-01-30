@@ -67,7 +67,13 @@ class Contratos(QtWidgets.QMainWindow):
         db = DBManager()
 
         tipo = db.select('Tipo_Contrato', '*', f"nombre = '{self.ui.comboBox.currentText()}'")[0][0]
-        db.insert('Contrato', f"'{id_contrato}', '{inmueble}', '{cliente}', '{agente}', '{tipo}', '{fecha_inicio}', {fecha_fin}, '{comision}', '{precio}'")
+
+        if fecha_fin == "null":
+            db.insert('Contrato', f"'{id_contrato}', '{inmueble}', '{cliente}', '{agente}', '{tipo}', '{fecha_inicio}', {fecha_fin}, '{comision}', '{precio}'")
+        else:
+            db.insert('Contrato', f"'{id_contrato}', '{inmueble}', '{cliente}', '{agente}', '{tipo}', '{fecha_inicio}', '{fecha_fin}', '{comision}', '{precio}'")
+
+        db.update('Inmueble', f"Dueño = '{cliente}'", f"ID = '{inmueble}'")
 
         db.close()
 
