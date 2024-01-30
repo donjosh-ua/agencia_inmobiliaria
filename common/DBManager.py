@@ -8,7 +8,7 @@ class DBManager:
             host='localhost',
             dbname='bienes_raices',
             user='postgres',
-            password='postgres1234',
+            password='leo2002',
             port=5432)
         self.c = self.conn.cursor()
 

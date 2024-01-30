@@ -26,8 +26,9 @@ class Empleados(QtWidgets.QMainWindow):
         direccion = self.ui.txtDireccion.text()
         clave = self.ui.txtClave.text()
         db = DBManager()
-        db.insert('Empleado',f"'{cedula}','{nombre}','{telefono}','{correo}','{direccion}','{clave}'")
+        db.insert('Empleado',f"'{cedula}','{nombre}','{telefono}','{correo}','{direccion}'")
         db.close()
+        self.salir()
 
     def modificar(self):
         nombre = self.ui.txtModificarNombre.text()
